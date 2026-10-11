@@ -1,30 +1,43 @@
+/* comment and notes... 
+
+Palette and theme variables:
+#5170ff
+#000000 + #3533cd
+#a9eaff + #efefef
+*/
+
 :root {
-  --bg: #f5f1ea;
-  --panel: #fffdfa;
-  --panel-alt: #edf2ef;
-  --primary: #153d4d;
-  --primary-soft: #dfeaf0;
-  --accent: #f0a851;
-  --accent-strong: #d98d24;
-  --text: #1a1f2a;
-  --muted: #5e6470;
-  --success: #2d7d66;
-  --border: rgba(21, 61, 77, 0.12);
-  --shadow: 0 18px 40px rgba(19, 38, 50, 0.12);
+  --palette-blue: #5170ff;
+  --palette-black: #000000;
+  --palette-charcoal: #353c;
+  --palette-sky: #a9eaff;
+  --palette-gray: #efefef;
+  --bg: var(--palette-gray);
+  --panel: #ffffff;
+  --panel-alt: var(--palette-sky);
+  --primary: var(--palette-blue);
+  --primary-soft: rgba(81, 112, 255, 0.12);
+  --accent: var(--palette-sky);
+  --accent-strong: var(--palette-blue);
+  --text: var(--palette-black);
+  --muted: var(--palette-charcoal);
+  --success: var(--palette-blue);
+  --border: rgba(0, 0, 0, 0.2);
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
 }
 
 body.dark {
-  --bg: #0b1620;
-  --panel: #13232f;
-  --panel-alt: #1b2d39;
-  --primary: #d9edf5;
-  --primary-soft: rgba(126, 193, 213, 0.12);
-  --accent: #ffc36d;
-  --accent-strong: #f29c3d;
-  --text: #edf1f5;
-  --muted: #adc0cf;
-  --success: #69d2a0;
-  --border: rgba(217, 237, 245, 0.12);
+  --bg: var(--palette-black);
+  --panel: var(--palette-charcoal);
+  --panel-alt: rgba(169, 234, 255, 0.14);
+  --primary: var(--palette-sky);
+  --primary-soft: rgba(169, 234, 255, 0.14);
+  --accent: var(--palette-blue);
+  --accent-strong: var(--palette-sky);
+  --text: var(--palette-gray);
+  --muted: var(--palette-gray);
+  --success: var(--palette-sky);
+  --border: rgba(239, 239, 239, 0.18);
   --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
 }
 
@@ -1816,4 +1829,515 @@ body.dark .portal-inner-page .account-favorites li {
   .portal-slide-status {
     font-size: 0.66rem;
   }
+}
+
+/* Project-wide palette: electric blue, black/charcoal, sky blue, and soft gray. */
+body {
+  background: var(--palette-gray);
+}
+
+body.dark {
+  background: var(--palette-black);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--palette-blue);
+  outline-offset: 2px;
+}
+
+.primary-button,
+.search-wrap button {
+  background: var(--palette-blue);
+  color: var(--palette-gray);
+}
+
+.secondary-button {
+  background: var(--palette-sky);
+  color: var(--palette-black);
+  border-color: rgba(0, 0, 0, 0.16);
+}
+
+.ghost-button {
+  color: var(--palette-black);
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+.brand-mark {
+  background: var(--palette-blue);
+  color: var(--palette-gray);
+}
+
+.category-icon,
+.feature-icon {
+  background: var(--palette-sky);
+  color: var(--palette-black);
+}
+
+.profile-card {
+  background: linear-gradient(135deg, var(--palette-blue), var(--palette-charcoal));
+  color: var(--palette-gray);
+}
+
+.profile-card p {
+  color: var(--palette-gray);
+}
+
+.avatar {
+  background: var(--palette-sky);
+  color: var(--palette-black);
+}
+
+.toggle-pill {
+  background: var(--palette-sky);
+  color: var(--palette-black);
+}
+
+.field input,
+.field select,
+.field textarea {
+  border-color: rgba(0, 0, 0, 0.22);
+  background: var(--palette-gray);
+  color: var(--palette-black);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--palette-blue);
+  box-shadow: 0 0 0 4px rgba(81, 112, 255, 0.16);
+}
+
+.search-wrap,
+.category-card,
+.info-card,
+.metric-card,
+.book-card,
+.account-panel,
+.feature-card,
+.list-card,
+.reading-item,
+.auth-panel,
+.book-info,
+.reader-card {
+  border-color: rgba(0, 0, 0, 0.16);
+  background-color: var(--palette-gray);
+}
+
+.book-cover {
+  background-color: var(--palette-sky);
+}
+
+.detail-cover {
+  background-color: var(--palette-sky);
+}
+
+body.dark .category-icon,
+body.dark .feature-icon,
+body.dark .avatar {
+  background: var(--palette-blue);
+  color: var(--palette-gray);
+}
+
+body.dark .profile-card {
+  background: linear-gradient(135deg, var(--palette-black), var(--palette-charcoal));
+  color: var(--palette-gray);
+}
+
+body.dark .profile-card p {
+  color: var(--palette-sky);
+}
+
+body.dark .toggle-pill {
+  background: var(--palette-blue);
+  color: var(--palette-gray);
+}
+
+body.dark .field input,
+body.dark .field select,
+body.dark .field textarea,
+body.dark .search-wrap,
+body.dark .category-card,
+body.dark .info-card,
+body.dark .metric-card,
+body.dark .book-card,
+body.dark .account-panel,
+body.dark .feature-card,
+body.dark .list-card,
+body.dark .reading-item,
+body.dark .auth-panel,
+body.dark .book-info,
+body.dark .reader-card {
+  border-color: rgba(239, 239, 239, 0.18);
+  background: var(--palette-charcoal);
+  color: var(--palette-gray);
+}
+
+body.dark .primary-button,
+body.dark .search-wrap button {
+  background: var(--palette-blue);
+  color: var(--palette-gray);
+}
+
+body.dark .secondary-button {
+  background: var(--palette-sky);
+  color: var(--palette-black);
+}
+
+body.dark .ghost-button {
+  color: var(--palette-gray);
+  border-color: rgba(239, 239, 239, 0.32);
+}
+
+body.dark .brand-mark {
+  background: var(--palette-blue);
+  color: var(--palette-gray);
+}
+
+.portal-page {
+  background: var(--palette-gray);
+  color: var(--palette-black);
+}
+
+.portal-header,
+.portal-layout {
+  border-color: var(--palette-charcoal);
+  background: var(--palette-gray);
+}
+
+.portal-brand {
+  background: var(--palette-sky);
+  color: var(--palette-black);
+}
+
+.portal-brand-name {
+  color: var(--palette-black);
+  text-shadow: none;
+}
+
+.portal-heading,
+.portal-main-nav,
+.portal-main-content {
+  background: var(--palette-gray);
+}
+
+.portal-topline,
+.portal-main-nav a {
+  color: var(--palette-charcoal);
+}
+
+.portal-audience-nav a,
+.portal-audience-nav a:nth-child(n) {
+  background: var(--palette-blue);
+  color: var(--palette-gray);
+}
+
+.portal-audience-nav a:nth-child(2),
+.portal-audience-nav a:nth-child(4),
+.portal-audience-nav a:nth-child(6) {
+  background: var(--palette-charcoal);
+  color: var(--palette-gray);
+}
+
+.portal-audience-nav a:nth-child(3),
+.portal-audience-nav a:nth-child(5) {
+  background: var(--palette-sky);
+  color: var(--palette-black);
+}
+
+.portal-main-nav {
+  border-color: rgba(0, 0, 0, 0.16);
+}
+
+.portal-main-nav a:hover,
+.portal-main-nav a.active {
+  color: var(--palette-black);
+  background: var(--palette-sky);
+}
+
+.portal-main-nav a span {
+  color: var(--palette-blue);
+}
+
+.portal-site-search,
+.portal-quick-links {
+  background: var(--palette-blue);
+}
+
+.portal-site-search label,
+.portal-quick-links h2 {
+  color: var(--palette-gray);
+}
+
+.portal-site-search input,
+.portal-quick-links select,
+.portal-catalog-search select,
+.portal-catalog-search input {
+  border-color: rgba(0, 0, 0, 0.25);
+  background: var(--palette-gray);
+  color: var(--palette-black);
+}
+
+.portal-site-search button,
+.portal-catalog-search button {
+  border-color: rgba(0, 0, 0, 0.2);
+  background: var(--palette-gray);
+  color: var(--palette-black);
+}
+
+.portal-sidebar-left {
+  background: var(--palette-sky);
+  color: var(--palette-black);
+}
+
+.portal-catalog-search {
+  background: var(--palette-blue);
+  color: var(--palette-gray);
+}
+
+.portal-catalog-search label {
+  color: var(--palette-gray);
+}
+
+.portal-link-group li::before,
+.portal-resource-group li::before {
+  color: var(--palette-blue);
+}
+
+.portal-contact-card {
+  border-color: var(--palette-blue);
+  background: var(--palette-gray);
+  color: var(--palette-black);
+}
+
+.portal-feature {
+  background: var(--palette-gray);
+}
+
+.portal-feature-art {
+  background: linear-gradient(
+    180deg,
+    var(--palette-sky) 0%,
+    var(--palette-gray) 77%,
+    var(--palette-charcoal) 78%,
+    var(--palette-black) 100%
+  );
+}
+
+.feature-sun,
+.feature-leaf {
+  background: var(--palette-blue);
+}
+
+.feature-book-one {
+  background: var(--palette-charcoal);
+}
+
+.feature-book-two {
+  background: var(--palette-gray);
+}
+
+.feature-ribbon,
+.portal-feature-button {
+  background: var(--palette-blue);
+  color: var(--palette-gray);
+}
+
+.portal-kicker,
+.portal-feature-copy h1,
+.portal-inner-page .title-block h1,
+.portal-inner-page .info-card h3,
+.portal-inner-page .account-panel h3,
+.portal-inner-page .section-head h2 {
+  color: var(--palette-blue);
+}
+
+.portal-feature-copy p,
+.portal-inner-page .title-block p,
+.portal-inner-page p,
+.portal-inner-page .account-favorites li {
+  color: var(--palette-charcoal);
+}
+
+.portal-slide-status {
+  background: var(--palette-black);
+  color: var(--palette-gray);
+}
+
+.portal-slide-status span {
+  color: var(--palette-sky);
+}
+
+.portal-news {
+  background: var(--palette-gray);
+  color: var(--palette-charcoal);
+  border-top: 1px solid rgba(0, 0, 0, 0.14);
+}
+
+.portal-news h2,
+.portal-news h3,
+.portal-more-link {
+  color: var(--palette-blue);
+}
+
+.portal-news-list li::before {
+  color: var(--palette-blue);
+}
+
+.portal-sidebar-right {
+  background: var(--palette-sky);
+  color: var(--palette-black);
+}
+
+.portal-resource-group h2 {
+  color: var(--palette-charcoal);
+}
+
+.portal-social a,
+.portal-social a:nth-of-type(2),
+.portal-social a:nth-of-type(3) {
+  background: var(--palette-blue);
+  color: var(--palette-gray);
+}
+
+.portal-footer {
+  border-color: var(--palette-charcoal);
+  background: var(--palette-gray);
+  color: var(--palette-charcoal);
+}
+
+.portal-footer button {
+  border-color: rgba(0, 0, 0, 0.2);
+  background: var(--palette-sky);
+  color: var(--palette-black);
+}
+
+.portal-inner-page .info-card,
+.portal-inner-page .metric-card,
+.portal-inner-page .account-panel,
+.portal-inner-page .feature-card,
+.portal-inner-page .reading-item,
+.portal-inner-page .auth-panel,
+.portal-inner-page .auth-side .feature-card,
+.portal-inner-page .book-info,
+.portal-inner-page .reader-card {
+  border-color: rgba(0, 0, 0, 0.16);
+  background: var(--palette-gray);
+}
+
+.portal-inner-page .account-panel .metric-card {
+  background: var(--palette-sky);
+}
+
+.portal-inner-page .account-favorites li {
+  border-color: rgba(0, 0, 0, 0.16);
+}
+
+.portal-inner-page .book-info .eyebrow {
+  background: var(--palette-sky);
+  color: var(--palette-black);
+}
+
+.portal-inner-page .reader-body {
+  border-color: rgba(0, 0, 0, 0.14);
+  background: var(--palette-sky);
+  color: var(--palette-black);
+}
+
+.portal-inner-page .page-badge,
+.portal-inner-page .toggle-pill {
+  background: var(--palette-sky);
+  color: var(--palette-black);
+}
+
+.portal-inner-page input,
+.portal-inner-page select,
+.portal-inner-page textarea {
+  border-color: rgba(0, 0, 0, 0.24);
+  background: var(--palette-gray);
+  color: var(--palette-black);
+}
+
+body.dark.portal-page {
+  background: var(--palette-black);
+  color: var(--palette-gray);
+}
+
+body.dark .portal-header,
+body.dark .portal-layout,
+body.dark .portal-footer,
+body.dark .portal-heading,
+body.dark .portal-main-nav,
+body.dark .portal-main-content,
+body.dark .portal-feature,
+body.dark .portal-news,
+body.dark .portal-inner-page .info-card,
+body.dark .portal-inner-page .metric-card,
+body.dark .portal-inner-page .account-panel,
+body.dark .portal-inner-page .feature-card,
+body.dark .portal-inner-page .reading-item,
+body.dark .portal-inner-page .auth-panel,
+body.dark .portal-inner-page .auth-side .feature-card,
+body.dark .portal-inner-page .book-info,
+body.dark .portal-inner-page .reader-card {
+  border-color: rgba(239, 239, 239, 0.18);
+  background: var(--palette-charcoal);
+  color: var(--palette-gray);
+}
+
+body.dark .portal-brand,
+body.dark .portal-sidebar-left,
+body.dark .portal-sidebar-right,
+body.dark .portal-inner-page .reader-body,
+body.dark .portal-inner-page .page-badge,
+body.dark .portal-inner-page .toggle-pill,
+body.dark .portal-inner-page .account-panel .metric-card {
+  background: var(--palette-black);
+  color: var(--palette-sky);
+}
+
+body.dark .portal-brand-name,
+body.dark .portal-main-nav a,
+body.dark .portal-topline,
+body.dark .portal-inner-page p,
+body.dark .portal-inner-page .account-favorites li,
+body.dark .portal-resource-group h2 {
+  color: var(--palette-gray);
+}
+
+body.dark .portal-inner-page .title-block h1,
+body.dark .portal-inner-page .info-card h3,
+body.dark .portal-inner-page .account-panel h3,
+body.dark .portal-inner-page .section-head h2,
+body.dark .portal-news h2,
+body.dark .portal-news h3,
+body.dark .portal-more-link,
+body.dark .portal-feature-copy h1 {
+  color: var(--palette-sky);
+}
+
+body.dark .portal-feature-copy p {
+  color: var(--palette-gray);
+}
+
+body.dark .portal-main-nav a:hover,
+body.dark .portal-main-nav a.active,
+body.dark .portal-inner-page .book-info .eyebrow {
+  background: var(--palette-blue);
+  color: var(--palette-gray);
+}
+
+body.dark .portal-site-search input,
+body.dark .portal-quick-links select,
+body.dark .portal-catalog-search select,
+body.dark .portal-catalog-search input,
+body.dark .portal-inner-page input,
+body.dark .portal-inner-page select,
+body.dark .portal-inner-page textarea {
+  border-color: rgba(239, 239, 239, 0.22);
+  background: var(--palette-black);
+  color: var(--palette-gray);
 }

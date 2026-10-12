@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.main-nav a').forEach((link) => {
+  document.querySelectorAll('.portal-main-nav a').forEach((link) => {
     const href = link.getAttribute('href');
     if (href === currentPath) {
       link.classList.add('active');

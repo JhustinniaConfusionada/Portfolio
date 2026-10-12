@@ -11,7 +11,7 @@
     <header class="portal-header">
       <div class="portal-masthead">
         <a href="index.html" class="portal-brand" aria-label="Webrary home">
-          <img class="portal-brand-logo" src="src/WR_logoCircle.png" alt="" />
+          <img class="portal-brand-logo" src="src/WR_logo.png" alt="" />
           <span class="portal-brand-name">Webrary</span>
         </a>
         <div class="portal-heading">
@@ -36,7 +36,7 @@
     <main class="portal-layout">
       <aside class="portal-sidebar portal-sidebar-left" aria-label="Library and account links">
         <form class="portal-catalog-search" data-search-form>
-          <label for="catalog-search">Search by</label>
+          <label for="catalog-search">Search by:</label>
           <select id="catalog-search" aria-label="Catalog search type">
             <option>Keyword</option>
             <option>Title</option>
@@ -50,29 +50,20 @@
         <section class="portal-link-group">
           <h2>My Account</h2>
           <ul>
-            <li><a href="account.html">Access My Account</a></li>
-            <li><a href="account.html">My Reading List</a></li>
+            <li><a href="account.html">Profile</a></li>
+            <li><a href="account.html">Reading List</a></li>
           </ul>
         </section>
+      </aside>
 
       <section class="portal-main-content">
         <div class="portal-feature">
-          <div class="portal-feature-art" aria-hidden="true">
-            <span class="feature-sun"></span>
-            <span class="feature-book feature-book-one"></span>
-            <span class="feature-book feature-book-two"></span>
-            <span class="feature-leaf feature-leaf-one"></span>
-            <span class="feature-leaf feature-leaf-two"></span>
-            <span class="feature-star">✦</span>
-            <span class="feature-ribbon">READ<br />GROW<br />DISCOVER</span>
-          </div>
           <div class="portal-feature-copy">
             <span class="portal-kicker">Your next chapter starts here</span>
             <h1>Find your next<br />great read.</h1>
             <p>Explore stories, research, and new ideas in your digital library.</p>
             <a href="book.html" class="portal-feature-button">Explore the catalog <span aria-hidden="true">→</span></a>
           </div>
-          <div class="portal-slide-status"><span>●</span> Featured collection <b>1 / 4</b></div>
         </div>
 
         <section class="portal-news">
@@ -129,27 +120,11 @@
             <li><a href="book.html">Titles on Order</a></li>
           </ul>
         </section>
-
-        <section class="portal-resource-group">
-          <h2>Newsletters</h2>
-          <ul>
-            <li><a href="about.html">Adult Newsletter</a></li>
-            <li><a href="about.html">Kids Newsletter</a></li>
-            <li><a href="about.html">Reader Updates</a></li>
-          </ul>
-        </section>
-
-        <section class="portal-resource-group portal-social">
-          <h2>Follow Us</h2>
-          <a href="about.html" aria-label="Follow Library One on Facebook">f</a>
-          <a href="about.html" aria-label="Follow Library One on Instagram">◎</a>
-          <a href="about.html" aria-label="Follow Library One on YouTube">▶</a>
-        </section>
       </aside>
     </main>
 
     <footer class="portal-footer">
-      <div>© <span id="year"></span> Library One <span>·</span> A library for every curious mind</div>
+      <div>© <span id="year"></span> Webrary <span>·</span> A library for every curious mind</div>
       <button type="button" data-theme-toggle aria-label="Toggle color theme">Toggle theme</button>
     </footer>
     <script src="script.js"></script>

@@ -89,7 +89,6 @@ function HomePage() {
   return h('main', { className: 'home-main' },
     h('section', { className: 'hero shell' },
       h('div', { className: 'hero-copy' },
-        h('div', { className: 'availability' }, h('span', { className: 'availability-dot' }), copy.availability),
         h('h1', null, copy.titleFirst, h('br'), h('span', null, copy.titleSecond)),
         h('p', { className: 'hero-intro' }, copy.description),
         h('div', { className: 'hero-actions' },

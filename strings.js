@@ -7,22 +7,21 @@ window.PORTFOLIO_STRINGS = {
     pageTitle: 'Jhustine Cortuna — Designer & Developer',
     description: 'Jhustine Cortuna is a 4th-year BSIT student from National University-Manila, interested in web development and design, approaching problems with a user-centered mindset.',
     footerNote: 'Made with care, and a little bit of coffee.',
-    emailLinkLabel: 'Say hello'
+    emailLinkLabel: 'Email me!'
   },
   navigation: {
     home: 'Home',
     about: 'About',
     projects: 'Projects',
     skills: 'Skills',
-    contact: 'Contact',
-    ariaLabel: 'Main navigation',
+    contact: 'Contacts',
+    ariaLabel: 'Main Navigation',
     homeLinkLabel: 'Jhustine Cortuna, home',
     themeToLight: 'Switch to light theme',
     themeToDark: 'Switch to dark theme'
   },
   home: {
-    availability: 'AVAILABLE FOR SELECT PROJECTS',
-    titleFirst: 'Thoughtful design.',
+    titleFirst: '...',
     titleSecond: 'Made for people.',
     description: 'I’m Jhustine — a designer and front-end developer turning big ideas into clear, human digital experiences.',
     projectsLink: 'Explore my work',
@@ -117,18 +116,22 @@ window.PORTFOLIO_STRINGS = {
     }
   ],
   skillsPage: {
-    eyebrow: 'A TOOLKIT, NOT A CHECKLIST',
+    // eyebrow: 'A TOOLKIT, NOT A CHECKLIST', <-- remove this
     titleFirst: 'A little bit of',
     titleSecond: 'everything.',
     description: 'The right mix of big-picture thinking and hands-on making to bring an idea all the way to life.',
     experienceEyebrow: 'A FEW CHAPTERS',
     experienceTitle: 'Experience so far.',
+    //certifications: [
+    //  { date: '2022', title: 'UX Design Certificate · Google', description: 'A professional certificate program covering the foundations of UX design.' },
+    //  { date: '2021', title: 'Front-End Web Development Certificate · freeCodeCamp', description: 'A self-paced program covering HTML, CSS, JavaScript, and React.' }
+    //],
     experience: [
       { date: '2022 — NOW', role: 'Independent Designer & Developer', description: 'Working with kind people to make useful digital products.' },
       { date: '2020 — 2022', role: 'Product Designer · Brightside Studio', description: 'Led product design across early-stage web and mobile projects.' },
       { date: '2016 — 2020', role: 'B.A. Visual Communication · Northshore University', description: 'Built a foundation in design, research, and creative practice.' }
     ],
-    ctaPrompt: 'A good fit is about more than a skill list.',
+    // ctaPrompt: 'A good fit is about more than a skill list.',  <-- remove this
     ctaLink: 'Let’s find out together'
   },
   skillGroups: [
@@ -137,7 +140,7 @@ window.PORTFOLIO_STRINGS = {
     { title: 'In practice', items: ['Creative direction', 'User research', 'Clear communication', 'Thoughtful details', 'Team collaboration', 'Curiosity'] }
   ],
   contact: {
-    eyebrow: 'YOUR TURN',
+    // eyebrow: 'YOUR TURN', <--remove this 
     titleFirst: 'Have a good',
     titleSecond: 'one in mind?',
     description: 'A new project, a collaboration, or just a friendly hello — my inbox is open. Tell me a little about what you’re thinking.',

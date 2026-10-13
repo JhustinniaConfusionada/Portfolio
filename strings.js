@@ -146,6 +146,13 @@ window.PORTFOLIO_STRINGS = {
     titleSecond: 'one in mind?',
     description: 'A new project, a collaboration, or just a friendly hello — my inbox is open. Tell me a little about what you’re thinking.',
     availability: 'Currently taking on select projects.',
+    socialMediaLabel: 'Social media links',
+    socialMedia: [
+      { name: 'Twitter', url: 'https://twitter.com' },
+      { name: 'LinkedIn', url: 'https://linkedin.com' },
+      { name: 'Dribbble', url: 'https://dribbble.com' },
+      { name: 'Instagram', url: 'https://www.instagram.com/ct.jhxx/' }
+    ],
     nameLabel: 'Your name',
     namePlaceholder: 'What should I call you?',
     emailLabel: 'Email address',

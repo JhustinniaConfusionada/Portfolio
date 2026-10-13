@@ -1,43 +1,36 @@
-/* comment and notes... 
-
-Palette and theme variables:
-#5170ff
-#000000 + #3533cd
-#a9eaff + #efefef
-*/
 
 :root {
-  --palette-blue: #5170ff;
-  --palette-black: #000000;
-  --palette-charcoal: #353c;
-  --palette-sky: #a9eaff;
-  --palette-gray: #efefef;
-  --bg: var(--palette-gray);
-  --panel: #ffffff;
-  --panel-alt: var(--palette-sky);
-  --primary: var(--palette-blue);
-  --primary-soft: rgba(81, 112, 255, 0.12);
-  --accent: var(--palette-sky);
-  --accent-strong: var(--palette-blue);
-  --text: var(--palette-black);
-  --muted: var(--palette-charcoal);
-  --success: var(--palette-blue);
-  --border: rgba(0, 0, 0, 0.2);
-  --shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  --palette-blue: #153d4d;
+  --palette-black: #1a1f2a;
+  --palette-charcoal: #5e6470;
+  --palette-sky: #dfeaf0;
+  --palette-gray: #f5f1ea;
+  --bg: #f5f1ea;
+  --panel: #fffdfa;
+  --panel-alt: #edf2ef;
+  --primary: #153d4d;
+  --primary-soft: #dfeaf0;
+  --accent: #f0a851;
+  --accent-strong: #d98d24;
+  --text: #1a1f2a;
+  --muted: #5e6470;
+  --success: #2d7d66;
+  --border: rgba(21, 61, 77, 0.12);
+  --shadow: 0 18px 40px rgba(19, 38, 50, 0.12);
 }
 
 body.dark {
-  --bg: var(--palette-black);
-  --panel: var(--palette-charcoal);
-  --panel-alt: rgba(169, 234, 255, 0.14);
-  --primary: var(--palette-sky);
-  --primary-soft: rgba(169, 234, 255, 0.14);
-  --accent: var(--palette-blue);
-  --accent-strong: var(--palette-sky);
-  --text: var(--palette-gray);
-  --muted: var(--palette-gray);
-  --success: var(--palette-sky);
-  --border: rgba(239, 239, 239, 0.18);
+  --bg: #0b1620;
+  --panel: #13232f;
+  --panel-alt: #1b2d39;
+  --primary: #d9edf5;
+  --primary-soft: rgba(126, 193, 213, 0.12);
+  --accent: #ffc36d;
+  --accent-strong: #f29c3d;
+  --text: #edf1f5;
+  --muted: #adc0cf;
+  --success: #69d2a0;
+  --border: rgba(217, 237, 245, 0.12);
   --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
 }
 
@@ -2340,4 +2333,392 @@ body.dark .portal-inner-page textarea {
   border-color: rgba(239, 239, 239, 0.22);
   background: var(--palette-black);
   color: var(--palette-gray);
+}
+
+/* Restore the original warm neutral and deep teal theme in light and dark modes. */
+body {
+  background: linear-gradient(180deg, rgba(244, 237, 227, 0.85) 0%, rgba(226, 236, 240, 0.9) 100%);
+}
+
+body.dark {
+  background: linear-gradient(180deg, #071218 0%, #0d1d29 100%);
+}
+
+.portal-page {
+  background: #eef1e7;
+  color: #304238;
+}
+
+.portal-header,
+.portal-layout {
+  border-color: #7696a8;
+}
+
+.portal-header,
+.portal-heading,
+.portal-main-nav,
+.portal-main-content,
+.portal-feature,
+.portal-inner-page .info-card,
+.portal-inner-page .metric-card,
+.portal-inner-page .account-panel,
+.portal-inner-page .feature-card,
+.portal-inner-page .reading-item,
+.portal-inner-page .auth-panel,
+.portal-inner-page .auth-side .feature-card,
+.portal-inner-page .book-info,
+.portal-inner-page .reader-card {
+  background-color: #fffdfa;
+}
+
+.portal-brand {
+  background: #a8bf78;
+  color: #fff;
+}
+
+.portal-brand-name {
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(50, 67, 37, 0.3);
+}
+
+.portal-topline,
+.portal-main-nav a {
+  color: #5d6871;
+}
+
+.portal-audience-nav a,
+.portal-audience-nav a:nth-child(n) {
+  background: #326e86;
+  color: #fff;
+}
+
+.portal-audience-nav a:nth-child(2) { background: #4b8798; }
+.portal-audience-nav a:nth-child(3) { background: #9c5739; }
+.portal-audience-nav a:nth-child(4) { background: #62566e; }
+.portal-audience-nav a:nth-child(5) { background: #8b9e52; }
+.portal-audience-nav a:nth-child(6) { background: #d37a38; }
+
+.portal-main-nav {
+  border-color: #d5d9d0;
+}
+
+.portal-main-nav a:hover,
+.portal-main-nav a.active {
+  color: #2f6e4f;
+  background: #e8eddd;
+}
+
+.portal-main-nav a span,
+.portal-link-group li::before,
+.portal-resource-group li::before {
+  color: #83a94c;
+}
+
+.portal-site-search {
+  background: #92ae54;
+}
+
+.portal-catalog-search {
+  background: #9fb96a;
+}
+
+.portal-site-search input,
+.portal-quick-links select,
+.portal-catalog-search select,
+.portal-catalog-search input {
+  border-color: #a8b28d;
+  background: #fff;
+  color: #344238;
+}
+
+.portal-site-search button,
+.portal-catalog-search button {
+  border-color: #a7b491;
+  background: #f6f6ed;
+  color: #39493d;
+}
+
+.portal-sidebar-left {
+  background: #b7c98c;
+  color: #45613c;
+}
+
+.portal-catalog-search label {
+  color: #243a2b;
+}
+
+.portal-contact-card {
+  border-color: #204e6c;
+  background: #fff9d7;
+  color: #9a4d27;
+}
+
+.portal-feature-art {
+  background: linear-gradient(180deg, #cde4e9 0%, #eaf5f2 77%, #609546 78%, #4e813b 100%);
+}
+
+.feature-sun {
+  background: #f8cf62;
+}
+
+.feature-leaf {
+  background: #f0ad37;
+}
+
+.feature-leaf-two {
+  background: #78a849;
+}
+
+.feature-book-one {
+  background: #e27e55;
+}
+
+.feature-book-two {
+  background: #6d9eb2;
+}
+
+.feature-ribbon {
+  background: #4a9a68;
+}
+
+.portal-kicker {
+  color: #7c984a;
+}
+
+.portal-feature-copy h1,
+.portal-inner-page .title-block h1 {
+  color: #176648;
+}
+
+.portal-feature-copy p {
+  color: #58665b;
+}
+
+.portal-feature-button {
+  background: #176648;
+  color: #fff;
+}
+
+.portal-slide-status {
+  background: #27302b;
+  color: #fff;
+}
+
+.portal-slide-status span {
+  color: #b5ca79;
+}
+
+.portal-news {
+  background: #f0e5a5;
+  color: #574d2c;
+}
+
+.portal-news h2,
+.portal-news h3,
+.portal-more-link {
+  color: #8a4031;
+}
+
+.portal-news-list li::before {
+  color: #d89b37;
+}
+
+.portal-sidebar-right {
+  background: #d0e0e8;
+  color: #425d6b;
+}
+
+.portal-quick-links {
+  background: #5d8eaa;
+}
+
+.portal-quick-links h2 {
+  color: #fff;
+}
+
+.portal-resource-group h2 {
+  color: #365d70;
+}
+
+.portal-social a {
+  background: #547eae;
+}
+
+.portal-social a:nth-of-type(2) { background: #b35277; }
+.portal-social a:nth-of-type(3) { background: #bd4a3b; }
+
+.portal-footer {
+  border-color: #7696a8;
+  background: #f7f7f2;
+  color: #64736b;
+}
+
+.portal-footer button {
+  border-color: #b7c3b0;
+  background: #fff;
+  color: #425d4a;
+}
+
+.portal-inner-page .info-card,
+.portal-inner-page .metric-card,
+.portal-inner-page .account-panel,
+.portal-inner-page .auth-panel,
+.portal-inner-page .auth-side .feature-card,
+.portal-inner-page .book-info,
+.portal-inner-page .reader-card {
+  border-color: #d9dfce;
+}
+
+.portal-inner-page .info-card,
+.portal-inner-page .metric-card,
+.portal-inner-page .account-panel,
+.portal-inner-page .auth-side .feature-card {
+  background: #f6f7f0;
+}
+
+.portal-inner-page .info-card h3,
+.portal-inner-page .account-panel h3 {
+  color: #3a684d;
+}
+
+.portal-inner-page .section-head h2 {
+  color: #8a4031;
+}
+
+.portal-inner-page .account-panel .metric-card {
+  background: #fff;
+}
+
+.portal-inner-page .account-favorites li {
+  border-color: #e0e5d9;
+  color: #5e6470;
+}
+
+.portal-inner-page .book-info .eyebrow {
+  background: rgba(240, 168, 81, 0.12);
+  color: #d98d24;
+}
+
+.portal-inner-page .reader-body {
+  border-color: #d9dfce;
+  background: #edf2ef;
+  color: #1a1f2a;
+}
+
+.portal-inner-page .page-badge {
+  background: #dfeaf0;
+  color: #153d4d;
+}
+
+.portal-inner-page .toggle-pill {
+  background: rgba(45, 125, 102, 0.15);
+  color: #2d7d66;
+}
+
+.portal-inner-page input,
+.portal-inner-page select,
+.portal-inner-page textarea {
+  border-color: rgba(21, 61, 77, 0.2);
+  background: #fffdfa;
+  color: #1a1f2a;
+}
+
+body.dark.portal-page {
+  background: #0b1620;
+  color: #edf1f5;
+}
+
+body.dark .portal-header,
+body.dark .portal-layout,
+body.dark .portal-footer {
+  border-color: rgba(217, 237, 245, 0.12);
+  background-color: #13232f;
+}
+
+body.dark .portal-heading,
+body.dark .portal-main-nav,
+body.dark .portal-main-content,
+body.dark .portal-feature,
+body.dark .portal-inner-page .info-card,
+body.dark .portal-inner-page .metric-card,
+body.dark .portal-inner-page .account-panel,
+body.dark .portal-inner-page .auth-panel,
+body.dark .portal-inner-page .auth-side .feature-card,
+body.dark .portal-inner-page .book-info,
+body.dark .portal-inner-page .reader-card {
+  background-color: #13232f;
+}
+
+body.dark .portal-brand {
+  background: #1b2d39;
+}
+
+body.dark .portal-sidebar-left,
+body.dark .portal-sidebar-right {
+  background: #1b2d39;
+  color: #adc0cf;
+}
+
+body.dark .portal-topline,
+body.dark .portal-main-nav a,
+body.dark .portal-inner-page p,
+body.dark .portal-inner-page .account-favorites li {
+  color: #adc0cf;
+}
+
+body.dark .portal-main-nav a:hover,
+body.dark .portal-main-nav a.active {
+  background: rgba(126, 193, 213, 0.12);
+  color: #d9edf5;
+}
+
+body.dark .portal-news {
+  background: #1b2d39;
+  color: #edf1f5;
+}
+
+body.dark .portal-news h2,
+body.dark .portal-news h3,
+body.dark .portal-more-link {
+  color: #ffc36d;
+}
+
+body.dark .portal-feature-copy h1,
+body.dark .portal-inner-page .title-block h1,
+body.dark .portal-inner-page .info-card h3,
+body.dark .portal-inner-page .account-panel h3,
+body.dark .portal-inner-page .section-head h2 {
+  color: #d9edf5;
+}
+
+body.dark .portal-inner-page .account-panel .metric-card {
+  background: #1b2d39;
+}
+
+body.dark .portal-inner-page .reader-body {
+  border-color: rgba(217, 237, 245, 0.12);
+  background: #1b2d39;
+  color: #edf1f5;
+}
+
+body.dark .portal-inner-page .page-badge {
+  background: rgba(126, 193, 213, 0.12);
+  color: #d9edf5;
+}
+
+body.dark .portal-inner-page .toggle-pill {
+  background: rgba(105, 210, 160, 0.15);
+  color: #69d2a0;
+}
+
+body.dark .portal-inner-page input,
+body.dark .portal-inner-page select,
+body.dark .portal-inner-page textarea,
+body.dark .portal-site-search input,
+body.dark .portal-quick-links select,
+body.dark .portal-catalog-search select,
+body.dark .portal-catalog-search input {
+  border-color: rgba(217, 237, 245, 0.2);
+  background: #0b1620;
+  color: #edf1f5;
 }

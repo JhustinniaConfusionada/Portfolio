@@ -117,15 +117,16 @@ window.PORTFOLIO_STRINGS = {
   ],
   skillsPage: {
     // eyebrow: 'A TOOLKIT, NOT A CHECKLIST', <-- remove this
-    titleFirst: 'A little bit of',
-    titleSecond: 'everything.',
-    description: 'The right mix of big-picture thinking and hands-on making to bring an idea all the way to life.',
-    experienceEyebrow: 'A FEW CHAPTERS',
-    experienceTitle: 'Experience so far.',
-    //certifications: [
-    //  { date: '2022', title: 'UX Design Certificate · Google', description: 'A professional certificate program covering the foundations of UX design.' },
-    //  { date: '2021', title: 'Front-End Web Development Certificate · freeCodeCamp', description: 'A self-paced program covering HTML, CSS, JavaScript, and React.' }
-    //],
+    titleFirst: 'Jack of all trades,',
+    titleSecond: 'Master of different things...',
+    description: 'With these mix of skills and experience, I can help bring your ideas to life.',
+    // experienceEyebrow: 'A FEW CHAPTERS', <-- remove this
+    experienceTitle: 'Experiences and Accomplishments so far.',
+    certificationsTitle: 'Certifications',
+    certifications: [
+     { date: '2022', title: 'UX Design Certificate · Google', description: 'A professional certificate program covering the foundations of UX design.' },
+     { date: '2021', title: 'Front-End Web Development Certificate · freeCodeCamp', description: 'A self-paced program covering HTML, CSS, JavaScript, and React.' }
+    ],
     experience: [
       { date: '2022 — NOW', role: 'Independent Designer & Developer', description: 'Working with kind people to make useful digital products.' },
       { date: '2020 — 2022', role: 'Product Designer · Brightside Studio', description: 'Led product design across early-stage web and mobile projects.' },

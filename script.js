@@ -225,6 +225,15 @@ function SkillsPage() {
         ))
       )
     ),
+    h('section', { className: 'experience-section certifications-section' },
+      h(SectionHeading, { title: copy.certificationsTitle }),
+      h('div', { className: 'experience-list' },
+        copy.certifications.map((item) => h('article', { className: 'experience-item', key: item.title },
+          h('span', { className: 'eyebrow' }, item.date),
+          h('div', null, h('h3', null, item.title), h('p', null, item.description))
+        ))
+      )
+    ),
     h('section', { className: 'page-cta' },
       h('p', null, copy.ctaPrompt),
       h('a', { className: 'text-link', href: '#contact' }, copy.ctaLink, ' ', h(Arrow, { diagonal: true }))

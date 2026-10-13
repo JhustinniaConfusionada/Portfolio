@@ -1,70 +1,19 @@
 const h = React.createElement;
+const content = window.PORTFOLIO_STRINGS;
 
 const pages = [
-  { id: 'home', label: 'Home', href: '#home' },
-  { id: 'about', label: 'About', href: '#about' },
-  { id: 'projects', label: 'Projects', href: '#projects' },
-  { id: 'skills', label: 'Skills', href: '#skills' },
-  { id: 'contact', label: 'Contact', href: '#contact' }
+  { id: 'home', label: content.navigation.home, href: '#home' },
+  { id: 'about', label: content.navigation.about, href: '#about' },
+  { id: 'projects', label: content.navigation.projects, href: '#projects' },
+  { id: 'skills', label: content.navigation.skills, href: '#skills' },
+  { id: 'contact', label: content.navigation.contact, href: '#contact' }
 ];
 
-const projects = [
-  {
-    number: '01',
-    title: 'Sunday Studio',
-    category: 'Brand & web design',
-    type: 'Design',
-    description: 'A warm, editorial home for an independent creative studio.',
-    className: 'project-art-sunday',
-    artwork: 'SUNDAY',
-    detail: 'Identity · Digital design'
-  },
-  {
-    number: '02',
-    title: 'Daybreak',
-    category: 'Product design',
-    type: 'Product',
-    description: 'A calmer way to build routines that actually fit your day.',
-    className: 'project-art-daybreak',
-    artwork: 'make room<br />for the good',
-    detail: 'Strategy · UI/UX · React'
-  },
-  {
-    number: '03',
-    title: 'Fieldnotes',
-    category: 'E-commerce',
-    type: 'Development',
-    description: 'A small-shop experience for objects made to last.',
-    className: 'project-art-fieldnotes',
-    artwork: 'FIELD<br />NOTES',
-    detail: 'Art direction · Development'
-  },
-  {
-    number: '04',
-    title: 'Common Ground',
-    category: 'Community platform',
-    type: 'Product',
-    description: 'Making it easier for neighbors to find and join local events.',
-    className: 'project-art-common',
-    artwork: 'Better<br />together.',
-    detail: 'Research · Product design'
-  }
-];
-
-const skillGroups = [
-  {
-    title: 'Design',
-    items: ['Product design', 'UI & visual design', 'Prototyping', 'Design systems', 'Figma', 'Art direction']
-  },
-  {
-    title: 'Development',
-    items: ['HTML & CSS', 'JavaScript', 'React', 'Responsive interfaces', 'Accessibility', 'Git']
-  },
-  {
-    title: 'In practice',
-    items: ['Creative direction', 'User research', 'Clear communication', 'Thoughtful details', 'Team collaboration', 'Curiosity']
-  }
-];
+const projects = content.projects.map((project, index) => ({
+  ...project,
+  number: String(index + 1).padStart(2, '0')
+}));
+const skillGroups = content.skillGroups;
 
 function Arrow({ diagonal = false }) {
   return h('span', { 'aria-hidden': true, className: 'arrow-icon' }, diagonal ? '↗' : '→');
@@ -72,11 +21,11 @@ function Arrow({ diagonal = false }) {
 
 function Header({ page, dark, onThemeToggle }) {
   return h('header', { className: 'site-header shell' },
-    h('a', { className: 'wordmark', href: '#home', 'aria-label': 'Alex Morgan, home' },
-      h('span', { className: 'wordmark-mark' }, 'A'),
-      h('span', null, 'alex morgan', h('small', null, 'DESIGNER & DEVELOPER'))
+    h('a', { className: 'wordmark', href: '#home', 'aria-label': content.navigation.homeLinkLabel },
+      h('span', { className: 'wordmark-mark' }, content.site.owner.charAt(0)),
+      h('span', null, content.site.owner.toLowerCase(), h('small', null, content.site.role))
     ),
-    h('nav', { className: 'main-nav', 'aria-label': 'Main navigation' },
+    h('nav', { className: 'main-nav', 'aria-label': content.navigation.ariaLabel },
       pages.map((item) => h('a', {
         key: item.id,
         href: item.href,
@@ -88,7 +37,7 @@ function Header({ page, dark, onThemeToggle }) {
       type: 'button',
       className: 'theme-toggle',
       onClick: onThemeToggle,
-      'aria-label': `Switch to ${dark ? 'light' : 'dark'} theme`,
+      'aria-label': dark ? content.navigation.themeToLight : content.navigation.themeToDark,
       'aria-pressed': dark
     }, h('span', { 'aria-hidden': true }, dark ? '☼' : '◐'))
   );
@@ -96,9 +45,9 @@ function Header({ page, dark, onThemeToggle }) {
 
 function Footer() {
   return h('footer', { className: 'site-footer shell' },
-    h('span', null, `© ${new Date().getFullYear()} Alex Morgan`),
-    h('span', { className: 'footer-note' }, 'Made with care, and a little bit of coffee.'),
-    h('a', { href: 'mailto:hello@alexmorgan.design' }, 'Say hello ', h(Arrow, { diagonal: true }))
+    h('span', null, `© ${new Date().getFullYear()} ${content.site.owner}`),
+    h('span', { className: 'footer-note' }, content.site.footerNote),
+    h('a', { href: `mailto:${content.site.email}` }, content.site.emailLinkLabel, ' ', h(Arrow, { diagonal: true }))
   );
 }
 
@@ -114,9 +63,14 @@ function SectionHeading({ eyebrow, title, children }) {
 
 function ProjectCard({ project }) {
   return h('article', { className: 'project-card' },
-    h('a', { className: `project-art ${project.className}`, href: '#contact', 'aria-label': `Discuss a project like ${project.title}` },
+    h('a', { className: `project-art ${project.className}`, href: '#contact', 'aria-label': `${project.title} — ${content.navigation.contact}` },
       h('span', { className: 'project-art-label' }, project.detail),
-      h('span', { className: 'project-art-title', dangerouslySetInnerHTML: { __html: project.artwork } }),
+      h('span', { className: 'project-art-title' },
+        project.artwork.map((line, index) => h(React.Fragment, { key: line },
+          index > 0 && h('br'),
+          line
+        ))
+      ),
       h('span', { className: 'project-art-corner', 'aria-hidden': true }, '↗')
     ),
     h('div', { className: 'project-info' },
@@ -131,35 +85,36 @@ function ProjectCard({ project }) {
 }
 
 function HomePage() {
+  const copy = content.home;
   return h('main', { className: 'home-main' },
     h('section', { className: 'hero shell' },
       h('div', { className: 'hero-copy' },
-        h('div', { className: 'availability' }, h('span', { className: 'availability-dot' }), 'AVAILABLE FOR SELECT PROJECTS'),
-        h('h1', null, 'Thoughtful design.', h('br'), h('span', null, 'Made for people.')),
-        h('p', { className: 'hero-intro' }, 'I’m Alex — a designer and front-end developer turning big ideas into clear, human digital experiences.'),
+        h('div', { className: 'availability' }, h('span', { className: 'availability-dot' }), copy.availability),
+        h('h1', null, copy.titleFirst, h('br'), h('span', null, copy.titleSecond)),
+        h('p', { className: 'hero-intro' }, copy.description),
         h('div', { className: 'hero-actions' },
-          h('a', { className: 'button button-dark', href: '#projects' }, 'Explore my work ', h(Arrow)),
-          h('a', { className: 'text-link', href: '#about' }, 'A little about me ', h(Arrow, { diagonal: true }))
+          h('a', { className: 'button button-dark', href: '#projects' }, copy.projectsLink, ' ', h(Arrow)),
+          h('a', { className: 'text-link', href: '#about' }, copy.aboutLink, ' ', h(Arrow, { diagonal: true }))
         )
       ),
-      h('div', { className: 'hero-visual', 'aria-label': 'Abstract illustration of a creative workspace', role: 'img' },
-        h('div', { className: 'visual-stamp' }, 'A / M'),
+      h('div', { className: 'hero-visual', 'aria-label': copy.visualLabel, role: 'img' },
+        h('div', { className: 'visual-stamp' }, copy.visualStamp),
         h('div', { className: 'visual-sun' }),
         h('div', { className: 'visual-orbit' }),
         h('div', { className: 'visual-card' },
-          h('span', null, 'CURRENTLY CREATING'),
-          h('strong', null, 'Useful things.', h('br'), 'Beautifully.')
+          h('span', null, copy.visualOverline),
+          h('strong', null, copy.visualTitleFirst, h('br'), copy.visualTitleSecond)
         ),
-        h('span', { className: 'visual-caption' }, 'A little structure, a lot of imagination.')
+        h('span', { className: 'visual-caption' }, copy.visualCaption)
       )
     ),
     h('section', { className: 'intro-strip shell' },
-      h('span', { className: 'eyebrow' }, 'A CREATIVE PARTNER'),
-      h('p', null, 'From the first sketch to the final line of code, I bring thoughtful ideas to life with purpose, personality, and a healthy respect for the details.')
+      h('span', { className: 'eyebrow' }, copy.introEyebrow),
+      h('p', null, copy.intro)
     ),
     h('section', { className: 'featured-section shell' },
-      h(SectionHeading, { eyebrow: 'SELECTED WORK · 2022—2026', title: 'A few things I’ve made.' },
-        h('a', { className: 'text-link', href: '#projects' }, 'All projects ', h(Arrow, { diagonal: true }))
+      h(SectionHeading, { eyebrow: copy.selectedWork, title: copy.selectedTitle },
+        h('a', { className: 'text-link', href: '#projects' }, copy.allProjectsLink, ' ', h(Arrow, { diagonal: true }))
       ),
       h('div', { className: 'project-grid home-project-grid' },
         projects.slice(0, 2).map((project) => h(ProjectCard, { key: project.number, project }))
@@ -167,68 +122,64 @@ function HomePage() {
     ),
     h('section', { className: 'home-cta shell' },
       h('div', null,
-        h('span', { className: 'eyebrow' }, 'HAVE SOMETHING IN MIND?'),
-        h('h2', null, 'Let’s make it ', h('span', null, 'matter.'))
+        h('span', { className: 'eyebrow' }, copy.ctaEyebrow),
+        h('h2', null, copy.ctaFirst, ' ', h('span', null, copy.ctaSecond))
       ),
-      h('a', { className: 'button button-light', href: '#contact' }, 'Start a conversation ', h(Arrow, { diagonal: true }))
+      h('a', { className: 'button button-light', href: '#contact' }, copy.ctaLink, ' ', h(Arrow, { diagonal: true }))
     )
   );
 }
 
 function AboutPage() {
+  const copy = content.about;
   return h('main', { className: 'page-main shell' },
     h('section', { className: 'page-intro about-intro' },
-      h('span', { className: 'eyebrow' }, 'A BIT ABOUT ME'),
-      h('h1', null, 'Curious by nature.', h('br'), h('span', null, 'Thoughtful by design.')),
-      h('p', null, 'I’m Alex Morgan, a multidisciplinary designer and developer who cares about making the digital world feel a little more human.')
+      h('span', { className: 'eyebrow' }, copy.eyebrow),
+      h('h1', null, copy.titleFirst, h('br'), h('span', null, copy.titleSecond)),
+      h('p', null, copy.description)
     ),
     h('section', { className: 'about-story' },
-      h('div', { className: 'about-art', role: 'img', 'aria-label': 'Abstract sun and shapes in warm colors' },
+      h('div', { className: 'about-art', role: 'img', 'aria-label': copy.imageLabel },
         h('span', { className: 'about-art-sun' }),
-        h('span', { className: 'about-art-word' }, 'stay curious'),
-        h('span', { className: 'about-art-note' }, 'Somewhere between logic & magic')
+        h('span', { className: 'about-art-word' }, copy.imageWord),
+        h('span', { className: 'about-art-note' }, copy.imageNote)
       ),
       h('div', { className: 'story-copy' },
-        h('span', { className: 'eyebrow' }, 'THE SHORT VERSION'),
-        h('h2', null, 'Good work starts with listening.'),
-        h('p', null, 'I work at the intersection of design and technology, helping people and teams turn complex ideas into digital products that feel simple, useful, and a little unexpected.'),
-        h('p', null, 'My process is collaborative and considered: ask better questions, make room for different perspectives, and sweat the small things that make an experience feel just right.'),
-        h('p', null, 'Outside of work, you’ll find me looking for a new walking route, collecting cookbooks, or attempting to keep a houseplant alive.')
+        h('span', { className: 'eyebrow' }, copy.storyEyebrow),
+        h('h2', null, copy.storyTitle),
+        copy.paragraphs.map((paragraph) => h('p', { key: paragraph }, paragraph))
       )
     ),
     h('section', { className: 'values-section' },
-      h(SectionHeading, { eyebrow: 'WHAT I BELIEVE', title: 'The way matters, too.' }),
+      h(SectionHeading, { eyebrow: copy.valuesEyebrow, title: copy.valuesTitle }),
       h('div', { className: 'values-grid' },
-        [
-          ['01', 'People first', 'The best solutions begin with real needs, honest conversations, and a little empathy.'],
-          ['02', 'Keep it curious', 'Stay open, question assumptions, and make space for ideas you didn’t expect.'],
-          ['03', 'Details add up', 'Small, thoughtful decisions turn a usable experience into a memorable one.']
-        ].map(([number, title, text]) => h('article', { className: 'value-card', key: number },
-          h('span', { className: 'project-number' }, number),
-          h('h3', null, title),
-          h('p', null, text)
+        copy.values.map((value, index) => h('article', { className: 'value-card', key: value.title },
+          h('span', { className: 'project-number' }, String(index + 1).padStart(2, '0')),
+          h('h3', null, value.title),
+          h('p', null, value.description)
         ))
       )
     ),
     h('section', { className: 'page-cta' },
-      h('p', null, 'Have a good feeling about this?'),
-      h('a', { className: 'text-link', href: '#contact' }, 'Let’s talk about it ', h(Arrow, { diagonal: true }))
+      h('p', null, copy.ctaPrompt),
+      h('a', { className: 'text-link', href: '#contact' }, copy.ctaLink, ' ', h(Arrow, { diagonal: true }))
     )
   );
 }
 
 function ProjectsPage() {
-  const [filter, setFilter] = React.useState('All');
-  const categories = ['All', 'Design', 'Product', 'Development'];
-  const visibleProjects = filter === 'All' ? projects : projects.filter((project) => project.type === filter);
+  const copy = content.projectsPage;
+  const [filter, setFilter] = React.useState(copy.filters[0]);
+  const categories = copy.filters;
+  const visibleProjects = filter === categories[0] ? projects : projects.filter((project) => project.type === filter);
   return h('main', { className: 'page-main shell' },
     h('section', { className: 'page-intro projects-intro' },
-      h('span', { className: 'eyebrow' }, 'A SELECTION OF RECENT WORK'),
-      h('h1', null, 'Good ideas, ', h('span', null, 'made real.')),
-      h('p', null, 'A few collaborations, experiments, and little internet things I’m proud of.')
+      h('span', { className: 'eyebrow' }, copy.eyebrow),
+      h('h1', null, copy.titleFirst, ' ', h('span', null, copy.titleSecond)),
+      h('p', null, copy.description)
     ),
     h('section', { className: 'projects-section' },
-      h('div', { className: 'filter-bar', 'aria-label': 'Filter projects' },
+      h('div', { className: 'filter-bar', 'aria-label': copy.filterLabel },
         categories.map((category) => h('button', {
           type: 'button',
           key: category,
@@ -240,17 +191,18 @@ function ProjectsPage() {
       h('div', { className: 'project-grid all-project-grid' },
         visibleProjects.map((project) => h(ProjectCard, { key: project.number, project }))
       ),
-      h('p', { className: 'projects-note' }, 'Want to see a case study or learn more about a project? ', h('a', { href: '#contact' }, 'Just ask.'))
+      h('p', { className: 'projects-note' }, copy.note, ' ', h('a', { href: '#contact' }, copy.noteLink))
     )
   );
 }
 
 function SkillsPage() {
+  const copy = content.skillsPage;
   return h('main', { className: 'page-main shell' },
     h('section', { className: 'page-intro skills-intro' },
-      h('span', { className: 'eyebrow' }, 'A TOOLKIT, NOT A CHECKLIST'),
-      h('h1', null, 'A little bit of ', h('span', null, 'everything.')),
-      h('p', null, 'The right mix of big-picture thinking and hands-on making to bring an idea all the way to life.')
+      h('span', { className: 'eyebrow' }, copy.eyebrow),
+      h('h1', null, copy.titleFirst, ' ', h('span', null, copy.titleSecond)),
+      h('p', null, copy.description)
     ),
     h('section', { className: 'skills-section' },
       h('div', { className: 'skill-groups' },
@@ -266,27 +218,24 @@ function SkillsPage() {
       )
     ),
     h('section', { className: 'experience-section' },
-      h(SectionHeading, { eyebrow: 'A FEW CHAPTERS', title: 'Experience so far.' }),
+      h(SectionHeading, { eyebrow: copy.experienceEyebrow, title: copy.experienceTitle }),
       h('div', { className: 'experience-list' },
-        [
-          ['2022 — NOW', 'Independent Designer & Developer', 'Working with kind people to make useful digital products.'],
-          ['2020 — 2022', 'Product Designer · Brightside Studio', 'Led product design across early-stage web and mobile projects.'],
-          ['2016 — 2020', 'B.A. Visual Communication · Northshore University', 'Built a foundation in design, research, and creative practice.']
-        ].map(([date, role, note]) => h('article', { className: 'experience-item', key: role },
-          h('span', { className: 'eyebrow' }, date),
-          h('div', null, h('h3', null, role), h('p', null, note))
+        copy.experience.map((item) => h('article', { className: 'experience-item', key: item.role },
+          h('span', { className: 'eyebrow' }, item.date),
+          h('div', null, h('h3', null, item.role), h('p', null, item.description))
         ))
       )
     ),
     h('section', { className: 'page-cta' },
-      h('p', null, 'A good fit is about more than a skill list.'),
-      h('a', { className: 'text-link', href: '#contact' }, 'Let’s find out together ', h(Arrow, { diagonal: true }))
+      h('p', null, copy.ctaPrompt),
+      h('a', { className: 'text-link', href: '#contact' }, copy.ctaLink, ' ', h(Arrow, { diagonal: true }))
     )
   );
 }
 
 function ContactPage() {
   const [submitted, setSubmitted] = React.useState(false);
+  const copy = content.contact;
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -297,21 +246,21 @@ function ContactPage() {
   return h('main', { className: 'page-main shell' },
     h('section', { className: 'contact-layout' },
       h('div', { className: 'contact-copy' },
-        h('span', { className: 'eyebrow' }, 'YOUR TURN'),
-        h('h1', null, 'Have a good ', h('span', null, 'one in mind?')),
-        h('p', null, 'A new project, a collaboration, or just a friendly hello — my inbox is open. Tell me a little about what you’re thinking.'),
-        h('a', { className: 'contact-email', href: 'mailto:hello@alexmorgan.design' }, 'hello@alexmorgan.design ', h(Arrow, { diagonal: true })),
+        h('span', { className: 'eyebrow' }, copy.eyebrow),
+        h('h1', null, copy.titleFirst, ' ', h('span', null, copy.titleSecond)),
+        h('p', null, copy.description),
+        h('a', { className: 'contact-email', href: `mailto:${content.site.email}` }, content.site.email, ' ', h(Arrow, { diagonal: true })),
         h('div', { className: 'contact-aside-note' },
           h('span', { className: 'availability-dot' }),
-          h('p', null, 'Currently taking on select projects.')
+          h('p', null, copy.availability)
         )
       ),
       h('form', { className: 'contact-form', onSubmit: handleSubmit },
-        h('label', null, 'Your name', h('input', { name: 'name', type: 'text', placeholder: 'What should I call you?', autoComplete: 'name', required: true })),
-        h('label', null, 'Email address', h('input', { name: 'email', type: 'email', placeholder: 'you@example.com', autoComplete: 'email', required: true })),
-        h('label', null, 'A little about your project', h('textarea', { name: 'message', rows: 5, placeholder: 'What are you working on?', required: true })),
-        h('button', { className: 'button button-dark submit-button', type: 'submit' }, 'Send your note ', h(Arrow, { diagonal: true })),
-        submitted && h('p', { className: 'form-success', role: 'status' }, 'Thanks for reaching out! This demo form is ready to connect to your email service.')
+        h('label', null, copy.nameLabel, h('input', { name: 'name', type: 'text', placeholder: copy.namePlaceholder, autoComplete: 'name', required: true })),
+        h('label', null, copy.emailLabel, h('input', { name: 'email', type: 'email', placeholder: copy.emailPlaceholder, autoComplete: 'email', required: true })),
+        h('label', null, copy.messageLabel, h('textarea', { name: 'message', rows: 5, placeholder: copy.messagePlaceholder, required: true })),
+        h('button', { className: 'button button-dark submit-button', type: 'submit' }, copy.submitLabel, ' ', h(Arrow, { diagonal: true })),
+        submitted && h('p', { className: 'form-success', role: 'status' }, copy.successMessage)
       )
     )
   );
@@ -329,6 +278,11 @@ function App() {
     document.body.classList.toggle('dark-theme', dark);
     localStorage.setItem('portfolio-theme', dark ? 'dark' : 'light');
   }, [dark]);
+
+  React.useEffect(() => {
+    document.title = content.site.pageTitle;
+    document.querySelector('meta[name="description"]').content = content.site.description;
+  }, []);
 
   React.useEffect(() => {
     const handleNavigation = () => {

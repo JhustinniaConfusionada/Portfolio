@@ -3,130 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Webrary | Digital Library</title>
-    <link rel="icon" href="src/WR_logoCircle.png" />
-    <link rel="stylesheet" href="styles.css?v=20261013" />
+    <meta name="theme-color" content="#f6f5f0" />
+    <meta name="description" content="Alex Morgan is a designer and front-end developer building thoughtful digital experiences." />
+    <title>Alex Morgan — Designer &amp; Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="portal-page">
-    <header class="portal-header">
-      <div class="portal-masthead">
-        <a href="index.html" class="portal-brand" aria-label="Webrary home">
-          <img class="portal-brand-logo" src="src/WR_logo.png" alt="" />
-          <span class="portal-brand-name">Webrary</span>
-        </a>
-        <div class="portal-heading">
-          <div class="portal-topline">
-            <span>www.libraryone.org</span>
-            <span>Knowledge is for everyone</span>
-          </div>
-          <nav class="portal-main-nav" aria-label="Main navigation">
-            <a class="active" href="index.html"><span aria-hidden="true">➜</span> Home</a>
-            <a href="book.html">Catalog</a>
-            <a href="account.html">My Account</a>
-          </nav>
-          <form class="portal-site-search" data-search-form>
-            <label for="site-search">Site Search</label>
-            <input id="site-search" type="search" aria-label="Search the library" />
-            <button type="submit">Go</button>
-          </form>
-        </div>
-      </div>
-    </header>
-
-    <main class="portal-layout">
-      <aside class="portal-sidebar portal-sidebar-left" aria-label="Library and account links">
-        <form class="portal-catalog-search" data-search-form>
-          <label for="catalog-search">Search by:</label>
-          <select id="catalog-search" aria-label="Catalog search type">
-            <option>Keyword</option>
-            <option>Title</option>
-            <option>Author</option>
-            <option>Subject</option>
-          </select>
-          <input type="search" aria-label="Catalog keyword" />
-          <button type="submit">Search</button>
-        </form>
-
-        <section class="portal-link-group">
-          <h2>My Account</h2>
-          <ul>
-            <li><a href="account.html">Profile</a></li>
-            <li><a href="account.html">Reading List</a></li>
-          </ul>
-        </section>
-      </aside>
-
-      <section class="portal-main-content">
-        <div class="portal-feature">
-          <div class="portal-feature-copy">
-            <span class="portal-kicker">Your next chapter starts here</span>
-            <h1>Find your next<br />great read.</h1>
-            <p>Explore stories, research, and new ideas in your digital library.</p>
-            <a href="book.html" class="portal-feature-button">Explore the catalog <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-
-        <section class="portal-news">
-          <h2>What's New</h2>
-          <ul class="portal-news-list">
-            <li><a href="book.html">New titles for curious minds: this month's picks</a></li>
-            <li><a href="about.html">Discover online resources for study and research</a></li>
-            <li><a href="about.html">Join us for community reading week</a></li>
-            <li><a href="book.html">Fresh from the digital shelves: journals and e-books</a></li>
-            <li><a href="about.html">Explore upcoming events for readers of every age</a></li>
-          </ul>
-          <h3>Ongoing Programs for Readers</h3>
-          <ul class="portal-news-list">
-            <li><a href="about.html">Book clubs and reading circles</a></li>
-            <li><a href="about.html">Research help and learning sessions</a></li>
-            <li><a href="about.html">Digital skills workshops</a></li>
-          </ul>
-          <a href="about.html" class="portal-more-link">See all news &amp; events →</a>
-        </section>
-      </section>
-
-      <aside class="portal-sidebar portal-sidebar-right" aria-label="Quick links and online resources">
-        <section class="portal-quick-links">
-          <h2>Quick Links</h2>
-          <label class="visually-hidden" for="quick-links">Choose a quick link</label>
-          <select id="quick-links">
-            <option value="">Choose One</option>
-            <option value="book.html">Browse the catalog</option>
-            <option value="account.html">My reading list</option>
-            <option value="about.html">Library information</option>
-          </select>
-        </section>
-
-        <section class="portal-resource-group">
-          <h2>Online Resources</h2>
-          <ul>
-            <li><a href="book.html">Research &amp; Learning</a></li>
-            <li><a href="book.html">Academic Journals</a></li>
-            <li><a href="book.html">Digital Reference Shelf</a></li>
-            <li><a href="book.html">E-book Collection</a></li>
-            <li><a href="book.html">Newspaper Archive</a></li>
-            <li><a href="book.html">Learning Express</a></li>
-          </ul>
-        </section>
-
-        <section class="portal-resource-group">
-          <h2>Reader's Corner</h2>
-          <ul>
-            <li><a href="book.html">Bestsellers</a></li>
-            <li><a href="book.html">Books &amp; Beyond</a></li>
-            <li><a href="book.html">Downloads &amp; e-books</a></li>
-            <li><a href="book.html">New Titles</a></li>
-            <li><a href="book.html">Next Reads</a></li>
-            <li><a href="book.html">Titles on Order</a></li>
-          </ul>
-        </section>
-      </aside>
-    </main>
-
-    <footer class="portal-footer">
-      <div>© <span id="year"></span> Webrary <span>·</span> A library for every curious mind</div>
-      <button type="button" data-theme-toggle aria-label="Toggle color theme">Toggle theme</button>
-    </footer>
+  <body data-page="home">
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
     <script src="script.js"></script>
   </body>
 </html>

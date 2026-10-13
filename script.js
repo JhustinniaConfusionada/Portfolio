@@ -1,162 +1,344 @@
-const libraryBooks = [
+const h = React.createElement;
+
+const pages = [
+  { id: 'home', label: 'Home', href: 'index.html' },
+  { id: 'about', label: 'About', href: 'about.html' },
+  { id: 'projects', label: 'Projects', href: 'projects.html' },
+  { id: 'skills', label: 'Skills', href: 'skills.html' },
+  { id: 'contact', label: 'Contact', href: 'contact.html' }
+];
+
+const projects = [
   {
-    title: 'The Silent Horizon',
-    author: 'Eva Hart',
-    category: 'Academic',
-    rating: '4.8',
-    image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=700&q=80'
+    number: '01',
+    title: 'Sunday Studio',
+    category: 'Brand & web design',
+    type: 'Design',
+    description: 'A warm, editorial home for an independent creative studio.',
+    className: 'project-art-sunday',
+    artwork: 'SUNDAY',
+    detail: 'Identity · Digital design'
   },
   {
-    title: 'Digital Archives',
-    author: 'Nathan Cole',
-    category: 'Periodicals',
-    rating: '4.7',
-    image: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=700&q=80'
+    number: '02',
+    title: 'Daybreak',
+    category: 'Product design',
+    type: 'Product',
+    description: 'A calmer way to build routines that actually fit your day.',
+    className: 'project-art-daybreak',
+    artwork: 'make room<br />for the good',
+    detail: 'Strategy · UI/UX · React'
   },
   {
-    title: 'Wonder in the Stacks',
-    author: 'Marina Vale',
-    category: 'E-Books',
-    rating: '4.9',
-    image: 'https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=700&q=80'
+    number: '03',
+    title: 'Fieldnotes',
+    category: 'E-commerce',
+    type: 'Development',
+    description: 'A small-shop experience for objects made to last.',
+    className: 'project-art-fieldnotes',
+    artwork: 'FIELD<br />NOTES',
+    detail: 'Art direction · Development'
   },
   {
-    title: 'Designing Knowledge',
-    author: 'Owen Blake',
-    category: 'Research',
-    rating: '4.6',
-    image: 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=700&q=80'
+    number: '04',
+    title: 'Common Ground',
+    category: 'Community platform',
+    type: 'Product',
+    description: 'Making it easier for neighbors to find and join local events.',
+    className: 'project-art-common',
+    artwork: 'Better<br />together.',
+    detail: 'Research · Product design'
   }
 ];
 
-const bookRows = [
-  'There are many ways to build a thoughtful reading life. A digital library should feel calm, orderly, and welcoming, giving readers a clear path to discover books and return to their favorites with ease.',
-  'Each chapter opens with a different lens: the value of archive access, the joy of educational discovery, and the importance of community-driven reading habits that span lifelong learning.',
-  'Readers often revisit the same passages, bookmark important chapters, and compare personal notes against a digital copy. The interface should help them move naturally from browsing to studying to saving.',
-  'This sample story demonstrates how a modern library page blends content, metadata, and user controls. The experience remains readable across devices, while also supporting detailed reading preferences like color themes and page tracking.'
+const skillGroups = [
+  {
+    title: 'Design',
+    items: ['Product design', 'UI & visual design', 'Prototyping', 'Design systems', 'Figma', 'Art direction']
+  },
+  {
+    title: 'Development',
+    items: ['HTML & CSS', 'JavaScript', 'React', 'Responsive interfaces', 'Accessibility', 'Git']
+  },
+  {
+    title: 'In practice',
+    items: ['Creative direction', 'User research', 'Clear communication', 'Thoughtful details', 'Team collaboration', 'Curiosity']
+  }
 ];
 
-document.addEventListener('DOMContentLoaded', () => {
-  const body = document.body;
-  const themeButton = document.querySelector('[data-theme-toggle]');
+function Arrow({ diagonal = false }) {
+  return h('span', { 'aria-hidden': true, className: 'arrow-icon' }, diagonal ? '↗' : '→');
+}
 
-  const savedTheme = localStorage.getItem('library-theme');
-  if (savedTheme === 'dark') {
-    body.classList.add('dark');
+function Header({ page, dark, onThemeToggle }) {
+  return h('header', { className: 'site-header shell' },
+    h('a', { className: 'wordmark', href: 'index.html', 'aria-label': 'Alex Morgan, home' },
+      h('span', { className: 'wordmark-mark' }, 'A'),
+      h('span', null, 'alex morgan', h('small', null, 'DESIGNER & DEVELOPER'))
+    ),
+    h('nav', { className: 'main-nav', 'aria-label': 'Main navigation' },
+      pages.map((item) => h('a', {
+        key: item.id,
+        href: item.href,
+        className: page === item.id ? 'nav-link active' : 'nav-link',
+        'aria-current': page === item.id ? 'page' : undefined
+      }, item.label))
+    ),
+    h('button', {
+      type: 'button',
+      className: 'theme-toggle',
+      onClick: onThemeToggle,
+      'aria-label': `Switch to ${dark ? 'light' : 'dark'} theme`,
+      'aria-pressed': dark
+    }, h('span', { 'aria-hidden': true }, dark ? '☼' : '◐'))
+  );
+}
+
+function Footer() {
+  return h('footer', { className: 'site-footer shell' },
+    h('span', null, `© ${new Date().getFullYear()} Alex Morgan`),
+    h('span', { className: 'footer-note' }, 'Made with care, and a little bit of coffee.'),
+    h('a', { href: 'mailto:hello@alexmorgan.design' }, 'Say hello ', h(Arrow, { diagonal: true }))
+  );
+}
+
+function SectionHeading({ eyebrow, title, children }) {
+  return h('div', { className: 'section-heading' },
+    h('div', null,
+      eyebrow && h('span', { className: 'eyebrow' }, eyebrow),
+      h('h2', null, title)
+    ),
+    children && h('div', { className: 'section-heading-aside' }, children)
+  );
+}
+
+function ProjectCard({ project }) {
+  return h('article', { className: 'project-card' },
+    h('a', { className: `project-art ${project.className}`, href: 'contact.html', 'aria-label': `Discuss a project like ${project.title}` },
+      h('span', { className: 'project-art-label' }, project.detail),
+      h('span', { className: 'project-art-title', dangerouslySetInnerHTML: { __html: project.artwork } }),
+      h('span', { className: 'project-art-corner', 'aria-hidden': true }, '↗')
+    ),
+    h('div', { className: 'project-info' },
+      h('div', null,
+        h('span', { className: 'project-number' }, project.number),
+        h('h3', null, project.title)
+      ),
+      h('span', { className: 'project-category' }, project.category)
+    ),
+    h('p', { className: 'project-description' }, project.description)
+  );
+}
+
+function HomePage() {
+  return h('main', { className: 'home-main' },
+    h('section', { className: 'hero shell' },
+      h('div', { className: 'hero-copy' },
+        h('div', { className: 'availability' }, h('span', { className: 'availability-dot' }), 'AVAILABLE FOR SELECT PROJECTS'),
+        h('h1', null, 'Thoughtful design.', h('br'), h('span', null, 'Made for people.')),
+        h('p', { className: 'hero-intro' }, 'I’m Alex — a designer and front-end developer turning big ideas into clear, human digital experiences.'),
+        h('div', { className: 'hero-actions' },
+          h('a', { className: 'button button-dark', href: 'projects.html' }, 'Explore my work ', h(Arrow)),
+          h('a', { className: 'text-link', href: 'about.html' }, 'A little about me ', h(Arrow, { diagonal: true }))
+        )
+      ),
+      h('div', { className: 'hero-visual', 'aria-label': 'Abstract illustration of a creative workspace', role: 'img' },
+        h('div', { className: 'visual-stamp' }, 'A / M'),
+        h('div', { className: 'visual-sun' }),
+        h('div', { className: 'visual-orbit' }),
+        h('div', { className: 'visual-card' },
+          h('span', null, 'CURRENTLY CREATING'),
+          h('strong', null, 'Useful things.', h('br'), 'Beautifully.')
+        ),
+        h('span', { className: 'visual-caption' }, 'A little structure, a lot of imagination.')
+      )
+    ),
+    h('section', { className: 'intro-strip shell' },
+      h('span', { className: 'eyebrow' }, 'A CREATIVE PARTNER'),
+      h('p', null, 'From the first sketch to the final line of code, I bring thoughtful ideas to life with purpose, personality, and a healthy respect for the details.')
+    ),
+    h('section', { className: 'featured-section shell' },
+      h(SectionHeading, { eyebrow: 'SELECTED WORK · 2022—2026', title: 'A few things I’ve made.' },
+        h('a', { className: 'text-link', href: 'projects.html' }, 'All projects ', h(Arrow, { diagonal: true }))
+      ),
+      h('div', { className: 'project-grid home-project-grid' },
+        projects.slice(0, 2).map((project) => h(ProjectCard, { key: project.number, project }))
+      )
+    ),
+    h('section', { className: 'home-cta shell' },
+      h('div', null,
+        h('span', { className: 'eyebrow' }, 'HAVE SOMETHING IN MIND?'),
+        h('h2', null, 'Let’s make it ', h('span', null, 'matter.'))
+      ),
+      h('a', { className: 'button button-light', href: 'contact.html' }, 'Start a conversation ', h(Arrow, { diagonal: true }))
+    )
+  );
+}
+
+function AboutPage() {
+  return h('main', { className: 'page-main shell' },
+    h('section', { className: 'page-intro about-intro' },
+      h('span', { className: 'eyebrow' }, 'A BIT ABOUT ME'),
+      h('h1', null, 'Curious by nature.', h('br'), h('span', null, 'Thoughtful by design.')),
+      h('p', null, 'I’m Alex Morgan, a multidisciplinary designer and developer who cares about making the digital world feel a little more human.')
+    ),
+    h('section', { className: 'about-story' },
+      h('div', { className: 'about-art', role: 'img', 'aria-label': 'Abstract sun and shapes in warm colors' },
+        h('span', { className: 'about-art-sun' }),
+        h('span', { className: 'about-art-word' }, 'stay curious'),
+        h('span', { className: 'about-art-note' }, 'Somewhere between logic & magic')
+      ),
+      h('div', { className: 'story-copy' },
+        h('span', { className: 'eyebrow' }, 'THE SHORT VERSION'),
+        h('h2', null, 'Good work starts with listening.'),
+        h('p', null, 'I work at the intersection of design and technology, helping people and teams turn complex ideas into digital products that feel simple, useful, and a little unexpected.'),
+        h('p', null, 'My process is collaborative and considered: ask better questions, make room for different perspectives, and sweat the small things that make an experience feel just right.'),
+        h('p', null, 'Outside of work, you’ll find me looking for a new walking route, collecting cookbooks, or attempting to keep a houseplant alive.')
+      )
+    ),
+    h('section', { className: 'values-section' },
+      h(SectionHeading, { eyebrow: 'WHAT I BELIEVE', title: 'The way matters, too.' }),
+      h('div', { className: 'values-grid' },
+        [
+          ['01', 'People first', 'The best solutions begin with real needs, honest conversations, and a little empathy.'],
+          ['02', 'Keep it curious', 'Stay open, question assumptions, and make space for ideas you didn’t expect.'],
+          ['03', 'Details add up', 'Small, thoughtful decisions turn a usable experience into a memorable one.']
+        ].map(([number, title, text]) => h('article', { className: 'value-card', key: number },
+          h('span', { className: 'project-number' }, number),
+          h('h3', null, title),
+          h('p', null, text)
+        ))
+      )
+    ),
+    h('section', { className: 'page-cta' },
+      h('p', null, 'Have a good feeling about this?'),
+      h('a', { className: 'text-link', href: 'contact.html' }, 'Let’s talk about it ', h(Arrow, { diagonal: true }))
+    )
+  );
+}
+
+function ProjectsPage() {
+  const [filter, setFilter] = React.useState('All');
+  const categories = ['All', 'Design', 'Product', 'Development'];
+  const visibleProjects = filter === 'All' ? projects : projects.filter((project) => project.type === filter);
+  return h('main', { className: 'page-main shell' },
+    h('section', { className: 'page-intro projects-intro' },
+      h('span', { className: 'eyebrow' }, 'A SELECTION OF RECENT WORK'),
+      h('h1', null, 'Good ideas, ', h('span', null, 'made real.')),
+      h('p', null, 'A few collaborations, experiments, and little internet things I’m proud of.')
+    ),
+    h('section', { className: 'projects-section' },
+      h('div', { className: 'filter-bar', 'aria-label': 'Filter projects' },
+        categories.map((category) => h('button', {
+          type: 'button',
+          key: category,
+          className: filter === category ? 'filter-button selected' : 'filter-button',
+          onClick: () => setFilter(category),
+          'aria-pressed': filter === category
+        }, category))
+      ),
+      h('div', { className: 'project-grid all-project-grid' },
+        visibleProjects.map((project) => h(ProjectCard, { key: project.number, project }))
+      ),
+      h('p', { className: 'projects-note' }, 'Want to see a case study or learn more about a project? ', h('a', { href: 'contact.html' }, 'Just ask.'))
+    )
+  );
+}
+
+function SkillsPage() {
+  return h('main', { className: 'page-main shell' },
+    h('section', { className: 'page-intro skills-intro' },
+      h('span', { className: 'eyebrow' }, 'A TOOLKIT, NOT A CHECKLIST'),
+      h('h1', null, 'A little bit of ', h('span', null, 'everything.')),
+      h('p', null, 'The right mix of big-picture thinking and hands-on making to bring an idea all the way to life.')
+    ),
+    h('section', { className: 'skills-section' },
+      h('div', { className: 'skill-groups' },
+        skillGroups.map((group, index) => h('article', { className: 'skill-group', key: group.title },
+          h('div', { className: 'skill-group-heading' },
+            h('span', { className: 'project-number' }, `0${index + 1}`),
+            h('h2', null, group.title)
+          ),
+          h('ul', { className: 'skill-list' },
+            group.items.map((item) => h('li', { key: item }, item, h('span', { 'aria-hidden': true }, '↗')))
+          )
+        ))
+      )
+    ),
+    h('section', { className: 'experience-section' },
+      h(SectionHeading, { eyebrow: 'A FEW CHAPTERS', title: 'Experience so far.' }),
+      h('div', { className: 'experience-list' },
+        [
+          ['2022 — NOW', 'Independent Designer & Developer', 'Working with kind people to make useful digital products.'],
+          ['2020 — 2022', 'Product Designer · Brightside Studio', 'Led product design across early-stage web and mobile projects.'],
+          ['2016 — 2020', 'B.A. Visual Communication · Northshore University', 'Built a foundation in design, research, and creative practice.']
+        ].map(([date, role, note]) => h('article', { className: 'experience-item', key: role },
+          h('span', { className: 'eyebrow' }, date),
+          h('div', null, h('h3', null, role), h('p', null, note))
+        ))
+      )
+    ),
+    h('section', { className: 'page-cta' },
+      h('p', null, 'A good fit is about more than a skill list.'),
+      h('a', { className: 'text-link', href: 'contact.html' }, 'Let’s find out together ', h(Arrow, { diagonal: true }))
+    )
+  );
+}
+
+function ContactPage() {
+  const [submitted, setSubmitted] = React.useState(false);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    setSubmitted(true);
+    event.currentTarget.reset();
   }
 
-  if (themeButton) {
-    themeButton.setAttribute('aria-pressed', String(savedTheme === 'dark'));
-    themeButton.addEventListener('click', () => {
-      body.classList.toggle('dark');
-      const nextTheme = body.classList.contains('dark') ? 'dark' : 'light';
-      localStorage.setItem('library-theme', nextTheme);
-      themeButton.setAttribute('aria-pressed', String(nextTheme === 'dark'));
-    });
-  }
+  return h('main', { className: 'page-main shell' },
+    h('section', { className: 'contact-layout' },
+      h('div', { className: 'contact-copy' },
+        h('span', { className: 'eyebrow' }, 'YOUR TURN'),
+        h('h1', null, 'Have a good ', h('span', null, 'one in mind?')),
+        h('p', null, 'A new project, a collaboration, or just a friendly hello — my inbox is open. Tell me a little about what you’re thinking.'),
+        h('a', { className: 'contact-email', href: 'mailto:hello@alexmorgan.design' }, 'hello@alexmorgan.design ', h(Arrow, { diagonal: true })),
+        h('div', { className: 'contact-aside-note' },
+          h('span', { className: 'availability-dot' }),
+          h('p', null, 'Currently taking on select projects.')
+        )
+      ),
+      h('form', { className: 'contact-form', onSubmit: handleSubmit },
+        h('label', null, 'Your name', h('input', { name: 'name', type: 'text', placeholder: 'What should I call you?', autoComplete: 'name', required: true })),
+        h('label', null, 'Email address', h('input', { name: 'email', type: 'email', placeholder: 'you@example.com', autoComplete: 'email', required: true })),
+        h('label', null, 'A little about your project', h('textarea', { name: 'message', rows: 5, placeholder: 'What are you working on?', required: true })),
+        h('button', { className: 'button button-dark submit-button', type: 'submit' }, 'Send your note ', h(Arrow, { diagonal: true })),
+        submitted && h('p', { className: 'form-success', role: 'status' }, 'Thanks for reaching out! This demo form is ready to connect to your email service.')
+      )
+    )
+  );
+}
 
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.portal-main-nav a').forEach((link) => {
-    const href = link.getAttribute('href');
-    if (href === currentPath) {
-      link.classList.add('active');
-    }
-  });
+function App() {
+  const page = document.body.dataset.page || 'home';
+  const [dark, setDark] = React.useState(() => localStorage.getItem('portfolio-theme') === 'dark');
 
-  const year = document.querySelector('#year');
-  if (year) {
-    year.textContent = new Date().getFullYear();
-  }
+  React.useEffect(() => {
+    document.body.classList.toggle('dark-theme', dark);
+    localStorage.setItem('portfolio-theme', dark ? 'dark' : 'light');
+  }, [dark]);
 
-  const bookGrid = document.querySelector('[data-book-grid]');
-  if (bookGrid) {
-    bookGrid.innerHTML = libraryBooks.map((book) => `
-      <article class="book-card">
-        <div class="book-cover" style="background-image: url('${book.image}')"></div>
-        <div class="book-card-content">
-          <div class="book-meta">
-            <span>${book.category}</span>
-            <span class="rating">★ ${book.rating}</span>
-          </div>
-          <h3>${book.title}</h3>
-          <p>by ${book.author}</p>
-          <footer>
-            <span class="rating">Popular</span>
-            <a href="book.html" class="primary-button">Read now</a>
-          </footer>
-        </div>
-      </article>
-    `).join('');
-  }
+  const pageContent = {
+    home: h(HomePage),
+    about: h(AboutPage),
+    projects: h(ProjectsPage),
+    skills: h(SkillsPage),
+    contact: h(ContactPage)
+  }[page] || h(HomePage);
 
-  const authTabs = document.querySelectorAll('[data-auth-tab]');
-  const authForms = document.querySelectorAll('[data-auth-form]');
+  return h(React.Fragment, null,
+    h(Header, { page, dark, onThemeToggle: () => setDark((value) => !value) }),
+    pageContent,
+    h(Footer)
+  );
+}
 
-  authTabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const target = tab.dataset.authTab;
-      authTabs.forEach((button) => button.classList.toggle('active', button === tab));
-      authForms.forEach((form) => {
-        const isActive = form.dataset.authForm === target;
-        form.classList.toggle('hidden', !isActive);
-      });
-    });
-  });
-
-  document.querySelectorAll('[data-search-form]').forEach((searchForm) => {
-    searchForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const field = searchForm.querySelector('input[type="search"]');
-      if (field) {
-        const query = field.value.trim();
-        if (query.length > 0) {
-          alert(`Search for “${query}” in the library catalog.`);
-        }
-      }
-    });
-  });
-
-  const quickLinks = document.querySelector('#quick-links');
-  if (quickLinks) {
-    quickLinks.addEventListener('change', () => {
-      if (quickLinks.value) {
-        window.location.href = quickLinks.value;
-      }
-    });
-  }
-
-  const readerValue = document.querySelector('[data-reader-page]');
-  const readerText = document.querySelector('[data-reader-text]');
-  const prevButton = document.querySelector('[data-prev-page]');
-  const nextButton = document.querySelector('[data-next-page]');
-
-  if (readerValue && readerText && prevButton && nextButton) {
-    let pageIndex = Number(localStorage.getItem('library-reader-page') || 0);
-    const maxPage = bookRows.length;
-
-    const renderReaderPage = () => {
-      readerValue.textContent = `Page ${pageIndex + 1} of ${maxPage}`;
-      readerText.textContent = bookRows[pageIndex];
-      localStorage.setItem('library-reader-page', String(pageIndex));
-    };
-
-    prevButton.addEventListener('click', () => {
-      pageIndex = Math.max(0, pageIndex - 1);
-      renderReaderPage();
-    });
-
-    nextButton.addEventListener('click', () => {
-      pageIndex = Math.min(maxPage - 1, pageIndex + 1);
-      renderReaderPage();
-    });
-
-    renderReaderPage();
-  }
-
-  document.querySelectorAll('[data-form-submit]').forEach((form) => {
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      alert('Your library profile has been saved.');
-    });
-  });
-});
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));

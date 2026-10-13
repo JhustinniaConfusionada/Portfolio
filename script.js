@@ -1,11 +1,11 @@
 const h = React.createElement;
 
 const pages = [
-  { id: 'home', label: 'Home', href: 'index.html' },
-  { id: 'about', label: 'About', href: 'about.html' },
-  { id: 'projects', label: 'Projects', href: 'projects.html' },
-  { id: 'skills', label: 'Skills', href: 'skills.html' },
-  { id: 'contact', label: 'Contact', href: 'contact.html' }
+  { id: 'home', label: 'Home', href: '#home' },
+  { id: 'about', label: 'About', href: '#about' },
+  { id: 'projects', label: 'Projects', href: '#projects' },
+  { id: 'skills', label: 'Skills', href: '#skills' },
+  { id: 'contact', label: 'Contact', href: '#contact' }
 ];
 
 const projects = [
@@ -72,7 +72,7 @@ function Arrow({ diagonal = false }) {
 
 function Header({ page, dark, onThemeToggle }) {
   return h('header', { className: 'site-header shell' },
-    h('a', { className: 'wordmark', href: 'index.html', 'aria-label': 'Alex Morgan, home' },
+    h('a', { className: 'wordmark', href: '#home', 'aria-label': 'Alex Morgan, home' },
       h('span', { className: 'wordmark-mark' }, 'A'),
       h('span', null, 'alex morgan', h('small', null, 'DESIGNER & DEVELOPER'))
     ),
@@ -114,7 +114,7 @@ function SectionHeading({ eyebrow, title, children }) {
 
 function ProjectCard({ project }) {
   return h('article', { className: 'project-card' },
-    h('a', { className: `project-art ${project.className}`, href: 'contact.html', 'aria-label': `Discuss a project like ${project.title}` },
+    h('a', { className: `project-art ${project.className}`, href: '#contact', 'aria-label': `Discuss a project like ${project.title}` },
       h('span', { className: 'project-art-label' }, project.detail),
       h('span', { className: 'project-art-title', dangerouslySetInnerHTML: { __html: project.artwork } }),
       h('span', { className: 'project-art-corner', 'aria-hidden': true }, '↗')
@@ -138,8 +138,8 @@ function HomePage() {
         h('h1', null, 'Thoughtful design.', h('br'), h('span', null, 'Made for people.')),
         h('p', { className: 'hero-intro' }, 'I’m Alex — a designer and front-end developer turning big ideas into clear, human digital experiences.'),
         h('div', { className: 'hero-actions' },
-          h('a', { className: 'button button-dark', href: 'projects.html' }, 'Explore my work ', h(Arrow)),
-          h('a', { className: 'text-link', href: 'about.html' }, 'A little about me ', h(Arrow, { diagonal: true }))
+          h('a', { className: 'button button-dark', href: '#projects' }, 'Explore my work ', h(Arrow)),
+          h('a', { className: 'text-link', href: '#about' }, 'A little about me ', h(Arrow, { diagonal: true }))
         )
       ),
       h('div', { className: 'hero-visual', 'aria-label': 'Abstract illustration of a creative workspace', role: 'img' },
@@ -159,7 +159,7 @@ function HomePage() {
     ),
     h('section', { className: 'featured-section shell' },
       h(SectionHeading, { eyebrow: 'SELECTED WORK · 2022—2026', title: 'A few things I’ve made.' },
-        h('a', { className: 'text-link', href: 'projects.html' }, 'All projects ', h(Arrow, { diagonal: true }))
+        h('a', { className: 'text-link', href: '#projects' }, 'All projects ', h(Arrow, { diagonal: true }))
       ),
       h('div', { className: 'project-grid home-project-grid' },
         projects.slice(0, 2).map((project) => h(ProjectCard, { key: project.number, project }))
@@ -170,7 +170,7 @@ function HomePage() {
         h('span', { className: 'eyebrow' }, 'HAVE SOMETHING IN MIND?'),
         h('h2', null, 'Let’s make it ', h('span', null, 'matter.'))
       ),
-      h('a', { className: 'button button-light', href: 'contact.html' }, 'Start a conversation ', h(Arrow, { diagonal: true }))
+      h('a', { className: 'button button-light', href: '#contact' }, 'Start a conversation ', h(Arrow, { diagonal: true }))
     )
   );
 }
@@ -212,7 +212,7 @@ function AboutPage() {
     ),
     h('section', { className: 'page-cta' },
       h('p', null, 'Have a good feeling about this?'),
-      h('a', { className: 'text-link', href: 'contact.html' }, 'Let’s talk about it ', h(Arrow, { diagonal: true }))
+      h('a', { className: 'text-link', href: '#contact' }, 'Let’s talk about it ', h(Arrow, { diagonal: true }))
     )
   );
 }
@@ -240,7 +240,7 @@ function ProjectsPage() {
       h('div', { className: 'project-grid all-project-grid' },
         visibleProjects.map((project) => h(ProjectCard, { key: project.number, project }))
       ),
-      h('p', { className: 'projects-note' }, 'Want to see a case study or learn more about a project? ', h('a', { href: 'contact.html' }, 'Just ask.'))
+      h('p', { className: 'projects-note' }, 'Want to see a case study or learn more about a project? ', h('a', { href: '#contact' }, 'Just ask.'))
     )
   );
 }
@@ -280,7 +280,7 @@ function SkillsPage() {
     ),
     h('section', { className: 'page-cta' },
       h('p', null, 'A good fit is about more than a skill list.'),
-      h('a', { className: 'text-link', href: 'contact.html' }, 'Let’s find out together ', h(Arrow, { diagonal: true }))
+      h('a', { className: 'text-link', href: '#contact' }, 'Let’s find out together ', h(Arrow, { diagonal: true }))
     )
   );
 }
@@ -318,13 +318,26 @@ function ContactPage() {
 }
 
 function App() {
-  const page = document.body.dataset.page || 'home';
+  const getCurrentPage = () => {
+    const currentPage = window.location.hash.slice(1);
+    return pages.some((item) => item.id === currentPage) ? currentPage : 'home';
+  };
+  const [page, setPage] = React.useState(getCurrentPage);
   const [dark, setDark] = React.useState(() => localStorage.getItem('portfolio-theme') === 'dark');
 
   React.useEffect(() => {
     document.body.classList.toggle('dark-theme', dark);
     localStorage.setItem('portfolio-theme', dark ? 'dark' : 'light');
   }, [dark]);
+
+  React.useEffect(() => {
+    const handleNavigation = () => {
+      setPage(getCurrentPage());
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener('hashchange', handleNavigation);
+    return () => window.removeEventListener('hashchange', handleNavigation);
+  }, []);
 
   const pageContent = {
     home: h(HomePage),

@@ -258,6 +258,14 @@ function ContactPage() {
         h('h1', null, copy.titleFirst, ' ', h('span', null, copy.titleSecond)),
         h('p', null, copy.description),
         h('a', { className: 'contact-email', href: `mailto:${content.site.email}` }, content.site.email, ' ', h(Arrow, { diagonal: true })),
+        h('nav', { className: 'social-links', 'aria-label': copy.socialMediaLabel },
+          copy.socialMedia.map((social) => h('a', {
+            key: social.name,
+            href: social.url,
+            target: '_blank',
+            rel: 'noopener noreferrer'
+          }, social.name, h(Arrow, { diagonal: true })))
+        ),
         h('div', { className: 'contact-aside-note' },
           h('span', { className: 'availability-dot' }),
           h('p', null, copy.availability)

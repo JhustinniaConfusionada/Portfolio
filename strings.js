@@ -23,10 +23,10 @@ window.PORTFOLIO_STRINGS = {
   home: {
     titleFirst: 'Hello, I’m Jhustine',
     titleSecond: '& This is my portfolio.',
-    description: 'I am an inspiring designer and front-end developer turning big ideas into clear, human digital experiences.',
+    description: 'I am an aspiring designer and front-end developer turning big ideas into clear, human digital experiences.',
     projectsLink: 'Check out my work',
-    aboutLink: 'Get to know me!',
-    visualLabel: 'Abstract illustration of a creative workspace',
+    aboutLink: 'Get to know me here!',
+    // visualLabel: 'Abstract illustration of a creative workspace',
     visualStamp: 'J / C',
     visualTitleFirst: 'Useful things.',
     visualTitleSecond: 'Beautifully.',

@@ -1,0 +1,5 @@
+# Color Palette:
+| Color         | Hex       |
+| Warm beige    | `#e8d8c9` |
+| Slate blue    | `#4b607f` |
+| Bright orange | `#f3701e` |

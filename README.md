@@ -57,9 +57,14 @@ webProject/
 ├── README.md
 └── src/
     ├── jc_logo.png
-    ├── certi_in_LinkedIn.jpg
-    ├── unity-essentials.1.png
-    └── profile-portrait.png
+    ├── Anim/
+    ├── Aud/
+    ├── Certi/
+    ├── DigArt/
+    │   └── download1.png  # Home-page portrait
+    ├── Photog/
+    ├── PubMats/
+    └── TraArt/
 ```
 
 ## Color palette

@@ -79,15 +79,15 @@ window.PORTFOLIO_STRINGS = {
     noteLink: 'Just ask.'
   },
 
-  //categories: [
-  // 'Animation', 
-  // 'Audio', 
-  // 'Digital & Traditional Arts', 
-  // 'Publication Materials',
-  // 'Photography',
-  // 'Concept Art',
-  // '3D Models'
-  // ],
+  categories: [
+  'Animation', 
+  'Audio', 
+  'Digital & Traditional Arts', 
+  'Publication Materials',
+  'Photography',
+  'Concept Art',
+  '3D Models'
+  ],
 
   projectDetailPage: {
     backLink: 'Return',
@@ -97,13 +97,13 @@ window.PORTFOLIO_STRINGS = {
   },
   projects: [
     {
-      title: 'Sunday Studio',
-      category: 'Brand & web design',
-      type: 'Publication Materials',
-      description: 'A warm, editorial home for an independent creative studio.',
-      className: 'project-art-sunday',
-      artwork: ['SUNDAY'],
-      detail: 'Identity · Digital design'
+      title: 'Profile icon portraits',
+      category: 'Digital & Traditional Arts',
+      type: 'Digital',
+      description: 'These are a collection of headshots profile I made in my free time, Using Ibip Paint',
+      className: 'Profile-icon-portraits',
+      artwork: ['Head shot', 'Portraits'],
+      detail: 'Identity · Digital Art'
     },
     {
       title: 'Daybreak',

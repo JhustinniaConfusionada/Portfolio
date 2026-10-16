@@ -100,7 +100,7 @@ function HomePage() {
         )
       ),
       h('div', { className: 'hero-visual' },
-        h('img', { src: 'src/profile-portrait.png', alt: copy.profileImageAlt })
+        h('img', { src: 'src/DigArt/download1.png', alt: copy.profileImageAlt })
       )
     ),
     h('section', { className: 'intro-strip shell' },

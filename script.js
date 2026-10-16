@@ -11,6 +11,7 @@ const pages = [
 
 const projects = content.projects.map((project, index) => ({
   ...project,
+  slug: project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
   number: String(index + 1).padStart(2, '0')
 }));
 const skillGroups = content.skillGroups;
@@ -63,24 +64,26 @@ function SectionHeading({ eyebrow, title, children }) {
 
 function ProjectCard({ project }) {
   return h('article', { className: 'project-card' },
-    h('a', { className: `project-art ${project.className}`, href: '#contact', 'aria-label': `${project.title} — ${content.navigation.contact}` },
-      h('span', { className: 'project-art-label' }, project.detail),
-      h('span', { className: 'project-art-title' },
-        project.artwork.map((line, index) => h(React.Fragment, { key: line },
-          index > 0 && h('br'),
-          line
-        ))
+    h('a', { className: 'project-card-link', href: `#item-content/${project.slug}`, 'aria-label': `${project.title} — ${content.projectDetailPage.contextTitle}` },
+      h('div', { className: `project-art ${project.className}` },
+        h('span', { className: 'project-art-label' }, project.detail),
+        h('span', { className: 'project-art-title' },
+          project.artwork.map((line, index) => h(React.Fragment, { key: line },
+            index > 0 && h('br'),
+            line
+          ))
+        ),
+        h('span', { className: 'project-art-corner', 'aria-hidden': true }, '↗')
       ),
-      h('span', { className: 'project-art-corner', 'aria-hidden': true }, '↗')
-    ),
-    h('div', { className: 'project-info' },
-      h('div', null,
-        h('span', { className: 'project-number' }, project.number),
-        h('h3', null, project.title)
+      h('div', { className: 'project-info' },
+        h('div', null,
+          h('span', { className: 'project-number' }, project.number),
+          h('h3', null, project.title)
+        ),
+        h('span', { className: 'project-category' }, project.category)
       ),
-      h('span', { className: 'project-category' }, project.category)
-    ),
-    h('p', { className: 'project-description' }, project.description)
+      h('p', { className: 'project-description' }, project.description)
+    )
   );
 }
 
@@ -195,6 +198,36 @@ function ProjectsPage() {
   );
 }
 
+function ProjectDetailPage({ project }) {
+  const copy = content.projectDetailPage;
+  return h('main', { className: 'page-main shell project-detail-page' },
+    h('a', { className: 'text-link project-back-link', href: '#projects' },
+      h('span', { 'aria-hidden': true }, '←'), ' ', copy.backLink
+    ),
+    h('section', { className: 'project-detail-intro' },
+      h('span', { className: 'eyebrow' }, project.category),
+      h('h1', null, project.title)
+    ),
+    h('div', { className: `project-art project-detail-art ${project.className}`, 'aria-hidden': true },
+      h('span', { className: 'project-art-label' }, project.detail),
+      h('span', { className: 'project-art-title' },
+        project.artwork.map((line, index) => h(React.Fragment, { key: line },
+          index > 0 && h('br'),
+          line
+        ))
+      )
+    ),
+    h('section', { className: 'project-context' },
+      h('span', { className: 'eyebrow' }, copy.contextTitle),
+      h('p', null, project.description),
+      h('dl', { className: 'project-context-details' },
+        h('div', null, h('dt', null, copy.categoryLabel), h('dd', null, project.category)),
+        h('div', null, h('dt', null, copy.focusLabel), h('dd', null, project.detail))
+      )
+    )
+  );
+}
+
 function SkillsPage() {
   const copy = content.skillsPage;
   return h('main', { className: 'page-main shell' },
@@ -283,11 +316,18 @@ function ContactPage() {
 }
 
 function App() {
-  const getCurrentPage = () => {
-    const currentPage = window.location.hash.slice(1);
-    return pages.some((item) => item.id === currentPage) ? currentPage : 'home';
+  const getCurrentRoute = () => {
+    const [currentPage, projectSlug] = window.location.hash.slice(1).split('/');
+    if (currentPage === 'item-content') {
+      const project = projects.find((item) => item.slug === projectSlug);
+      return project ? { page: currentPage, project } : { page: 'projects', project: null };
+    }
+    return {
+      page: pages.some((item) => item.id === currentPage) ? currentPage : 'home',
+      project: null
+    };
   };
-  const [page, setPage] = React.useState(getCurrentPage);
+  const [route, setRoute] = React.useState(getCurrentRoute);
   const [dark, setDark] = React.useState(() => localStorage.getItem('portfolio-theme') === 'dark');
 
   React.useEffect(() => {
@@ -302,7 +342,7 @@ function App() {
 
   React.useEffect(() => {
     const handleNavigation = () => {
-      setPage(getCurrentPage());
+      setRoute(getCurrentRoute());
       window.scrollTo(0, 0);
     };
     window.addEventListener('hashchange', handleNavigation);
@@ -314,11 +354,12 @@ function App() {
     about: h(AboutPage),
     projects: h(ProjectsPage),
     skills: h(SkillsPage),
-    contact: h(ContactPage)
-  }[page] || h(HomePage);
+    contact: h(ContactPage),
+    'item-content': route.project && h(ProjectDetailPage, { project: route.project })
+  }[route.page] || h(HomePage);
 
   return h(React.Fragment, null,
-    h(Header, { page, dark, onThemeToggle: () => setDark((value) => !value) }),
+    h(Header, { page: route.page, dark, onThemeToggle: () => setDark((value) => !value) }),
     pageContent,
     h(Footer)
   );

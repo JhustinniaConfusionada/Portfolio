@@ -20,7 +20,7 @@ The interface is built with HTML, CSS, and React using its browser-ready CDN bui
 |---|---|
 | Home | Introduction, featured projects, and calls to action |
 | About | Personal introduction, background, and design values |
-| Projects | Project cards with category filters |
+| Projects | Filterable project cards that open project context pages |
 | Skills | Skill groups, experience, and certifications |
 | Contact | Email, social links, and a contact form |
 
@@ -29,6 +29,7 @@ The interface is built with HTML, CSS, and React using its browser-ready CDN bui
 - Responsive layouts for smaller and larger screens
 - Hash-based navigation between sections, including browser back/forward support
 - Project filtering by category
+- Each project opens its own context page, kept out of the main navigation
 - Light/dark theme toggle; theme preference is saved in local storage
 - Contact form with browser-required-field and email-format validation
 - Contact form confirmation is client-side only; it does not send or store messages

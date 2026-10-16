@@ -67,20 +67,26 @@ window.PORTFOLIO_STRINGS = {
     ctaLink: 'Let’s talk about it'
   },
   projectsPage: {
-    eyebrow: 'A SELECTION OF RECENT WORK',
+    // eyebrow: 'A SELECTION OF RECENT WORK',
     titleFirst: 'Good ideas,',
     titleSecond: 'made real.',
     description: 'A few collaborations, experiments, and little internet things I’m proud of.',
     filterLabel: 'Filter projects',
     filters: ['All', 'Design', 'Product', 'Development'],
-    note: 'Want to see a case study or learn more about a project?',
+    // note: 'Want to see a case study or learn more about a project?',
     noteLink: 'Just ask.'
+  },
+  projectDetailPage: {
+    backLink: 'Return',
+    contextTitle: 'What was this about?',
+    categoryLabel: 'Category',
+    focusLabel: 'Focus'
   },
   projects: [
     {
       title: 'Sunday Studio',
       category: 'Brand & web design',
-      type: 'Design',
+      type: 'Publication Materials',
       description: 'A warm, editorial home for an independent creative studio.',
       className: 'project-art-sunday',
       artwork: ['SUNDAY'],

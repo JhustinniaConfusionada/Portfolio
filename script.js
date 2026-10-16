@@ -24,7 +24,7 @@ function Arrow({ diagonal = false }) {
 function Header({ page, dark, onThemeToggle }) {
   return h('header', { className: 'site-header shell' },
     h('a', { className: 'wordmark', href: '#home', 'aria-label': content.navigation.homeLinkLabel },
-      h('span', { className: 'wordmark-mark' }, content.site.owner.charAt(0)),
+      h('img', { className: 'wordmark-mark', src: 'src/JC_iconlogo.png', alt: '' }),
       h('span', null, content.site.owner.toLowerCase(), h('small', null, content.site.role))
     ),
     h('nav', { className: 'main-nav', 'aria-label': content.navigation.ariaLabel },

@@ -21,11 +21,11 @@ window.PORTFOLIO_STRINGS = {
     themeToDark: 'Switch to dark theme'
   },
   home: {
-    titleFirst: 'Hello, I’m Jhustine',
-    titleSecond: '& This is my PORTFOLIO.',
+    titleFirst: 'Welcome! I’m Jhustine',
+    titleSecond: 'Care to look at my work?',
     description: 'I am an aspiring concept designer and an artist, currently a 4th-year BSIT student from National University-Manila. I am interested in creating art and designing! Conceptualizing one-step at a time.',
     projectsLink: 'Check out my work',
-    aboutLink: 'Get to know me here!', //<--add a shadow effect when hovering over all button link
+    aboutLink: 'Get to know me here!',
     profileImageAlt: 'Portrait illustration of a red-haired person wearing a pink animal hat',
     // visualLabel: 'Abstract illustration of a creative workspace',
     // visualStamp: 'J / C',
@@ -70,8 +70,8 @@ window.PORTFOLIO_STRINGS = {
   },
   projectsPage: {
     // eyebrow: 'A SELECTION OF RECENT WORK',
-    titleFirst: 'Good ideas,',
-    titleSecond: 'made real.',
+    titleFirst: 'Life is a',
+    titleSecond: 'Work-In-Progress.',
     description: 'Browse my work by category, from animation and audio to photography and art.',
     filterLabel: 'Filter projects',
     allFilter: 'All',
@@ -83,10 +83,10 @@ window.PORTFOLIO_STRINGS = {
   categories: [
     'Animation',
     'Audio',
-    'Digital & Traditional Arts',
+    'Digital Arts',
     'Publication Materials',
     'Photography',
-    'Concept Art',
+    'Traditional Art',
     '3D Models'
   ],
 
@@ -103,34 +103,25 @@ window.PORTFOLIO_STRINGS = {
       description: 'Animation clips, storyboards, and character expression sheets.',
       detail: 'Animation · Storyboards · Character work',
       media: [
-        { type: 'video', src: 'src/Anim/CORTUNA_FinalProject_CT3DESGL.mp4', label: 'Cortuna Final Project' },
-        { type: 'image', src: 'src/Anim/storyboard.png', label: 'Storyboard' },
+        { type: 'video', src: 'src/Anim/CORTUNA_FinalProject_CT3DESGL.mp4', label: 'My Final Project Animation' },
+        { type: 'image', src: 'src/Anim/Illustration4 (7).png', label: 'Original character illustration' },
+        { type: 'image', src: 'src/Anim/storyboard.png', label: 'Animation Storyboard' },
         { type: 'image', src: 'src/Anim/Expression sheet.png', label: 'Expression sheet' },
         { type: 'image', src: 'src/Anim/Expression sheet (1).png', label: 'Expression sheet 1' },
-        { type: 'image', src: 'src/Anim/Expression sheet (2).png', label: 'Expression sheet 2' },
-        { type: 'image', src: 'src/Anim/Expression sheet (3).png', label: 'Expression sheet 3' },
-        { type: 'image', src: 'src/Anim/Illustration2 (1).png', label: 'Animation illustration 1' },
-        { type: 'image', src: 'src/Anim/Illustration2 (2).png', label: 'Animation illustration 2' },
-        { type: 'image', src: 'src/Anim/Illustration2 (3).png', label: 'Animation illustration 3' },
-        { type: 'image', src: 'src/Anim/Illustration4.png', label: 'Animation illustration 4' },
-        { type: 'image', src: 'src/Anim/Illustration4 (2).png', label: 'Animation illustration 5' },
-        { type: 'image', src: 'src/Anim/Illustration4 (3).png', label: 'Animation illustration 6' },
-        { type: 'image', src: 'src/Anim/Illustration4 (7).png', label: 'Animation illustration 7' },
-        { type: 'video', src: 'src/Anim/Finalproject(no edit).mp4', label: 'Final project' }
-      ]
-    },
-    {
-      title: 'Audio Projects',
-      category: 'Audio',
-      description: 'Audio work from the portfolio collection.',
-      detail: 'Audio · Video',
-      media: [
-        { type: 'video', src: 'src/Aud/lv_0_20260417032506.mp4', label: 'Audio project' }
+        // { type: 'image', src: 'src/Anim/Expression sheet (2).png', label: 'Expression sheet 2' },
+        // { type: 'image', src: 'src/Anim/Expression sheet (3).png', label: 'Expression sheet 3' },
+        { type: 'image', src: 'src/Anim/Illustration2 (1).png', label: 'Original character head turn-around' },
+        { type: 'image', src: 'src/Anim/Illustration2 (2).png', label: 'Original character 1st set of face expressions' },
+        { type: 'image', src: 'src/Anim/Illustration2 (3).png', label: 'Original character 1st concept design' },
+        { type: 'image', src: 'src/Anim/Illustration4.png', label: 'Original character proportions, line, shapes and silhouette' },
+        { type: 'image', src: 'src/Anim/Illustration4 (2).png', label: 'Original character 1st color palette choice' },
+        // { type: 'image', src: 'src/Anim/Illustration4 (3).png', label: 'Animation illustration 6' },
+        // { type: 'video', src: 'src/Anim/Finalproject(no edit).mp4', label: 'Final project' }
       ]
     },
     {
       title: 'Digital Portraits',
-      category: 'Digital & Traditional Arts',
+      category: 'Digital Arts',
       description: 'Digital portraits and artwork created in Ibis Paint.',
       detail: 'Digital painting · Portraits',
       media: [
@@ -146,13 +137,13 @@ window.PORTFOLIO_STRINGS = {
     {
       title: 'NUWC Publications',
       category: 'Publication Materials',
-      description: 'Publication and event materials created for NUWC.',
+      description: 'Publication and event materials created for NU-Manila Wizards Circle, a student organization from National University - Manila in 2023.',
       detail: 'Event publication · Graphic design',
       media: [
         { type: 'image', src: 'src/PubMats/2023 pubmat NUWC.jpg', label: 'NUWC publication material' },
         { type: 'image', src: 'src/PubMats/2023 D1 pubmat NUWC.jpg', label: 'NUWC publication material 1' },
         { type: 'image', src: 'src/PubMats/2023 D2 pubmat NUWC.jpg', label: 'NUWC publication material 2' },
-        { type: 'image', src: 'src/PubMats/2023 GA pubmat NUWC.jpg', label: 'NUWC publication material 3' }
+        { type: 'image', src: 'src/PubMats/2023 GA pubmat NUWC.jpg', label: 'PubMat for NUWC General Assembly ' }
       ]
     },
     {
@@ -161,15 +152,15 @@ window.PORTFOLIO_STRINGS = {
       description: 'Photography and travel images from the portfolio collection.',
       detail: 'Photography · Travel',
       media: [
-        { type: 'image', src: 'src/Photog/Photography.JPG', label: 'Photography' },
-        { type: 'image', src: 'src/Photog/TRAVEL_LAYOUT1.jpg', label: 'Travel photo layout' }
+        { type: 'image', src: 'src/Photog/Photography.JPG', label: 'Conceptualized the layout for this Photo' },
+        { type: 'image', src: 'src/Photog/TRAVEL_LAYOUT1.jpg', label: 'I took this photo' }
       ]
     },
     {
-      title: 'Concept Art',
-      category: 'Concept Art',
-      description: 'Traditional character concept artwork.',
-      detail: 'Character concept · Traditional media',
+      title: 'Traditional Art',
+      category: 'Traditional Art',
+      description: 'Traditional Artwork.',
+      detail: 'Character · Traditional media',
       media: [
         { type: 'image', src: 'src/TraArt/IMG20250927213138.jpg', label: 'Traditional character concept' }
       ]
@@ -180,6 +171,16 @@ window.PORTFOLIO_STRINGS = {
       description: '3D modeling work will be added to this collection.',
       detail: '3D modeling',
       media: []
+    },
+    {
+      title: 'Audio Projects',
+      category: 'Audio',
+      description: 'Audio work and voice acting work from the portfolio collection.',
+      detail: 'Voice Acting · Dubbing · Audio Engineering',
+      media: [
+        { type: 'video', src: 'src/Aud/Messenger_creation_33442046392110593.mp4', label: 'Character sounds/ Voices by Me! ' },
+        { type: 'video', src: 'src/Aud/lv_0_20260417032506.mp4', label: 'Audio-Engineering project: Dubbing [Tagalog] ShadowMilk Cookie from CookieRun: Kingdom'  }
+      ]
     }
   ],
   skillsPage: {
@@ -208,17 +209,17 @@ window.PORTFOLIO_STRINGS = {
     { title: 'In practice', items: ['Creative direction', 'User research', 'Clear communication', 'Thoughtful details', 'Team collaboration', 'Curiosity'] }
   ],
   contact: {
-    // eyebrow: 'YOUR TURN', <--remove this 
-    titleFirst: 'Have a good',
-    titleSecond: 'one in mind?',
+    eyebrow: 'Wanna commission me? Or just wanna say hi? I’m all ears.',
+    titleFirst: 'Something caught your eye, or a project idea on your mind?',
+    titleSecond: 'I’d love to hear about it!',
     description: 'A new project, a collaboration, or just a friendly hello — my inbox is open. Tell me a little about what you’re thinking.',
     availability: 'Currently taking on select projects.',
     socialMediaLabel: 'Social media links',
     socialMedia: [
-      { name: 'Twitter', url: 'https://twitter.com' },
-      { name: 'LinkedIn', url: 'https://linkedin.com' },
-      { name: 'Dribbble', url: 'https://dribbble.com' },
-      { name: 'Instagram', url: 'https://www.instagram.com/ct.jhxx/' }
+      { name: 'Tiktok', url: 'https://www.tiktok.com/@ctjhx_' },
+      // { name: 'LinkedIn', url: 'https://linkedin.com' },
+      { name: 'Instagram', url: 'https://www.instagram.com/ct.jhzz/' },
+      { name: 'Discord', url: 'https://discord.com/users/767020831481397248' }
     ],
     nameLabel: 'Your name',
     namePlaceholder: 'What should I call you?',

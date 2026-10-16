@@ -28,8 +28,9 @@ The interface is built with HTML, CSS, and React using its browser-ready CDN bui
 
 - Responsive layouts for smaller and larger screens
 - Hash-based navigation between sections, including browser back/forward support
-- Project filtering by category
-- Each project opens its own context page, kept out of the main navigation
+- Project collections are organized into Animation, Audio, Digital & Traditional Arts, Publication Materials, Photography, Concept Art, and 3D Models
+- Project cards filter by category and open context pages with image, video, or audio assets
+- Categories without uploaded work show an empty-state message
 - Light/dark theme toggle; theme preference is saved in local storage
 - Contact form with browser-required-field and email-format validation
 - Contact form confirmation is client-side only; it does not send or store messages

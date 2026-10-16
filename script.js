@@ -11,6 +11,7 @@ const pages = [
 
 const projects = content.projects.map((project, index) => ({
   ...project,
+  cover: project.media.find((item) => item.type === 'image'),
   slug: project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
   number: String(index + 1).padStart(2, '0')
 }));
@@ -65,14 +66,10 @@ function SectionHeading({ eyebrow, title, children }) {
 function ProjectCard({ project }) {
   return h('article', { className: 'project-card' },
     h('a', { className: 'project-card-link', href: `#item-content/${project.slug}`, 'aria-label': `${project.title} — ${content.projectDetailPage.contextTitle}` },
-      h('div', { className: `project-art ${project.className}` },
-        h('span', { className: 'project-art-label' }, project.detail),
-        h('span', { className: 'project-art-title' },
-          project.artwork.map((line, index) => h(React.Fragment, { key: line },
-            index > 0 && h('br'),
-            line
-          ))
-        ),
+      h('div', { className: 'project-collection-preview' },
+        project.cover
+          ? h('img', { src: project.cover.src, alt: '', loading: 'lazy' })
+          : h('span', { className: 'project-collection-placeholder' }, project.category),
         h('span', { className: 'project-art-corner', 'aria-hidden': true }, '↗')
       ),
       h('div', { className: 'project-info' },
@@ -164,9 +161,11 @@ function AboutPage() {
 
 function ProjectsPage() {
   const copy = content.projectsPage;
-  const [filter, setFilter] = React.useState(copy.filters[0]);
-  const categories = copy.filters;
-  const visibleProjects = filter === categories[0] ? projects : projects.filter((project) => project.type === filter);
+  const [filter, setFilter] = React.useState(copy.allFilter);
+  const filters = [copy.allFilter, ...content.categories];
+  const visibleProjects = filter === copy.allFilter
+    ? projects
+    : projects.filter((project) => project.category === filter);
   return h('main', { className: 'page-main shell' },
     h('section', { className: 'page-intro projects-intro' },
       h('span', { className: 'eyebrow' }, copy.eyebrow),
@@ -175,7 +174,7 @@ function ProjectsPage() {
     ),
     h('section', { className: 'projects-section' },
       h('div', { className: 'filter-bar', 'aria-label': copy.filterLabel },
-        categories.map((category) => h('button', {
+        filters.map((category) => h('button', {
           type: 'button',
           key: category,
           className: filter === category ? 'filter-button selected' : 'filter-button',
@@ -184,7 +183,9 @@ function ProjectsPage() {
         }, category))
       ),
       h('div', { className: 'project-grid all-project-grid' },
-        visibleProjects.map((project) => h(ProjectCard, { key: project.number, project }))
+        visibleProjects.length
+          ? visibleProjects.map((project) => h(ProjectCard, { key: project.number, project }))
+          : h('p', { className: 'projects-empty' }, copy.emptyCategory)
       ),
       h('p', { className: 'projects-note' }, copy.note, ' ', h('a', { href: '#contact' }, copy.noteLink))
     )
@@ -201,15 +202,22 @@ function ProjectDetailPage({ project }) {
       h('span', { className: 'eyebrow' }, project.category),
       h('h1', null, project.title)
     ),
-    h('div', { className: `project-art project-detail-art ${project.className}`, 'aria-hidden': true },
-      h('span', { className: 'project-art-label' }, project.detail),
-      h('span', { className: 'project-art-title' },
-        project.artwork.map((line, index) => h(React.Fragment, { key: line },
-          index > 0 && h('br'),
-          line
+    project.media.length
+      ? h('section', { className: 'project-asset-grid', 'aria-label': project.category },
+        project.media.map((asset) => h('figure', { className: 'project-asset', key: asset.src },
+          asset.type === 'image'
+            ? h('img', { src: asset.src, alt: asset.label, loading: 'lazy' })
+            : asset.type === 'video'
+              ? h('video', { controls: true, preload: 'metadata' },
+                h('source', { src: asset.src, type: 'video/mp4' })
+              )
+              : h('audio', { controls: true, preload: 'metadata' },
+                h('source', { src: asset.src, type: 'audio/mp4' })
+              ),
+          h('figcaption', null, asset.label)
         ))
       )
-    ),
+      : h('p', { className: 'projects-empty project-detail-empty' }, content.projectsPage.emptyCategory),
     h('section', { className: 'project-context' },
       h('span', { className: 'eyebrow' }, copy.contextTitle),
       h('p', null, project.description),

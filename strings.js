@@ -28,16 +28,16 @@ window.PORTFOLIO_STRINGS = {
     aboutLink: 'Get to know me here!', //<--add a shadow effect when hovering over all button link
     profileImageAlt: 'Portrait illustration of a red-haired person wearing a pink animal hat',
     // visualLabel: 'Abstract illustration of a creative workspace',
-    visualStamp: 'J / C',
+    // visualStamp: 'J / C',
     // visualTitleFirst: 'Useful things.',
     // visualTitleSecond: 'Beautifully.',
     // visualCaption: 'A little structure, a lot of imagination.',
-    introEyebrow: 'A CREATIVE PARTNER',
-    intro: 'Canva · Figma · Adobe Photoshop · Adobe Illustrator · Adobe After Effects · Blender · Unity · Clip Studio Paint',
+    introEyebrow: 'A CREATIVE PARTNERS',
+    intro: 'Canva · Figma · Adobe Photoshop · Adobe Illustrator · Adobe After Effects · Blender · Unity · Clip Studio Paint · Ibis Paint · HTML & CSS · JavaScript · React',
 
-    selectedWork: 'SELECTED WORK · 2023—2026',
-    selectedTitle: 'A few things I’ve made.',
-    allProjectsLink: 'All projects',
+    selectedWork: 'Creative WORKS · 2023—2026',
+    selectedTitle: 'My Art works and Projects I’ve been involved in...',
+    allProjectsLink: 'Check them out',
     ctaEyebrow: 'GOT SOMETHING IN MIND? WANNA TALK ABOUT IT? ',
     ctaFirst: 'Hey! You should',
     ctaSecond: 'commision me ;)',
@@ -72,21 +72,22 @@ window.PORTFOLIO_STRINGS = {
     // eyebrow: 'A SELECTION OF RECENT WORK',
     titleFirst: 'Good ideas,',
     titleSecond: 'made real.',
-    description: 'A few collaborations, experiments, and little internet things I’m proud of.',
+    description: 'Browse my work by category, from animation and audio to photography and art.',
     filterLabel: 'Filter projects',
-    filters: ['All', 'Design', 'Product', 'Development'],
+    allFilter: 'All',
+    emptyCategory: 'No work has been added to this category yet.',
     // note: 'Want to see a case study or learn more about a project?',
     noteLink: 'Just ask.'
   },
 
   categories: [
-  'Animation', 
-  'Audio', 
-  'Digital & Traditional Arts', 
-  'Publication Materials',
-  'Photography',
-  'Concept Art',
-  '3D Models'
+    'Animation',
+    'Audio',
+    'Digital & Traditional Arts',
+    'Publication Materials',
+    'Photography',
+    'Concept Art',
+    '3D Models'
   ],
 
   projectDetailPage: {
@@ -97,40 +98,88 @@ window.PORTFOLIO_STRINGS = {
   },
   projects: [
     {
-      title: 'Profile icon portraits',
+      title: 'Animation Portfolio',
+      category: 'Animation',
+      description: 'Animation clips, storyboards, and character expression sheets.',
+      detail: 'Animation · Storyboards · Character work',
+      media: [
+        { type: 'video', src: 'src/Anim/CORTUNA_FinalProject_CT3DESGL.mp4', label: 'Cortuna Final Project' },
+        { type: 'image', src: 'src/Anim/storyboard.png', label: 'Storyboard' },
+        { type: 'image', src: 'src/Anim/Expression sheet.png', label: 'Expression sheet' },
+        { type: 'image', src: 'src/Anim/Expression sheet (1).png', label: 'Expression sheet 1' },
+        { type: 'image', src: 'src/Anim/Expression sheet (2).png', label: 'Expression sheet 2' },
+        { type: 'image', src: 'src/Anim/Expression sheet (3).png', label: 'Expression sheet 3' },
+        { type: 'image', src: 'src/Anim/Illustration2 (1).png', label: 'Animation illustration 1' },
+        { type: 'image', src: 'src/Anim/Illustration2 (2).png', label: 'Animation illustration 2' },
+        { type: 'image', src: 'src/Anim/Illustration2 (3).png', label: 'Animation illustration 3' },
+        { type: 'image', src: 'src/Anim/Illustration4.png', label: 'Animation illustration 4' },
+        { type: 'image', src: 'src/Anim/Illustration4 (2).png', label: 'Animation illustration 5' },
+        { type: 'image', src: 'src/Anim/Illustration4 (3).png', label: 'Animation illustration 6' },
+        { type: 'image', src: 'src/Anim/Illustration4 (7).png', label: 'Animation illustration 7' },
+        { type: 'video', src: 'src/Anim/Finalproject(no edit).mp4', label: 'Final project' }
+      ]
+    },
+    {
+      title: 'Audio Projects',
+      category: 'Audio',
+      description: 'Audio work from the portfolio collection.',
+      detail: 'Audio · Video',
+      media: [
+        { type: 'video', src: 'src/Aud/lv_0_20260417032506.mp4', label: 'Audio project' }
+      ]
+    },
+    {
+      title: 'Digital Portraits',
       category: 'Digital & Traditional Arts',
-      type: 'Digital',
-      description: 'These are a collection of headshots profile I made in my free time, Using Ibip Paint',
-      className: 'Profile-icon-portraits',
-      artwork: ['Head shot', 'Portraits'],
-      detail: 'Identity · Digital Art'
+      description: 'Digital portraits and artwork created in Ibis Paint.',
+      detail: 'Digital painting · Portraits',
+      media: [
+        // { type: 'image', src: 'src/DigArt/download1.png', label: 'Portrait illustration' },
+        { type: 'image', src: 'src/DigArt/LS20250702160531.png', label: 'Digital artwork' },
+        { type: 'image', src: 'src/DigArt/LS20260402192306.png', label: 'Digital artwork' },
+        { type: 'image', src: 'src/DigArt/Untitled110~2.png', label: 'Digital portrait' },
+        { type: 'image', src: 'src/DigArt/Untitled111.png', label: 'Digital artwork' },
+        { type: 'image', src: 'src/DigArt/Untitled226_20260811211152~2.jpg', label: 'Digital artwork' },
+        { type: 'image', src: 'src/DigArt/Untitled118.png', label: 'Portrait illustration' }
+      ]
     },
     {
-      title: 'Daybreak',
-      category: 'Product design',
-      type: 'Product',
-      description: 'A calmer way to build routines that actually fit your day.',
-      className: 'project-art-daybreak',
-      artwork: ['make room', 'for the good'],
-      detail: 'Strategy · UI/UX · React'
+      title: 'NUWC Publications',
+      category: 'Publication Materials',
+      description: 'Publication and event materials created for NUWC.',
+      detail: 'Event publication · Graphic design',
+      media: [
+        { type: 'image', src: 'src/PubMats/2023 pubmat NUWC.jpg', label: 'NUWC publication material' },
+        { type: 'image', src: 'src/PubMats/2023 D1 pubmat NUWC.jpg', label: 'NUWC publication material 1' },
+        { type: 'image', src: 'src/PubMats/2023 D2 pubmat NUWC.jpg', label: 'NUWC publication material 2' },
+        { type: 'image', src: 'src/PubMats/2023 GA pubmat NUWC.jpg', label: 'NUWC publication material 3' }
+      ]
     },
     {
-      title: 'Fieldnotes',
-      category: 'E-commerce',
-      type: 'Development',
-      description: 'A small-shop experience for objects made to last.',
-      className: 'project-art-fieldnotes',
-      artwork: ['FIELD', 'NOTES'],
-      detail: 'Art direction · Development'
+      title: 'Photography Collection',
+      category: 'Photography',
+      description: 'Photography and travel images from the portfolio collection.',
+      detail: 'Photography · Travel',
+      media: [
+        { type: 'image', src: 'src/Photog/Photography.JPG', label: 'Photography' },
+        { type: 'image', src: 'src/Photog/TRAVEL_LAYOUT1.jpg', label: 'Travel photo layout' }
+      ]
     },
     {
-      title: 'Common Ground',
-      category: 'Community platform',
-      type: 'Product',
-      description: 'Making it easier for neighbors to find and join local events.',
-      className: 'project-art-common',
-      artwork: ['Better', 'together.'],
-      detail: 'Research · Product design'
+      title: 'Concept Art',
+      category: 'Concept Art',
+      description: 'Traditional character concept artwork.',
+      detail: 'Character concept · Traditional media',
+      media: [
+        { type: 'image', src: 'src/TraArt/IMG20250927213138.jpg', label: 'Traditional character concept' }
+      ]
+    },
+    {
+      title: '3D Model Showcase',
+      category: '3D Models',
+      description: '3D modeling work will be added to this collection.',
+      detail: '3D modeling',
+      media: []
     }
   ],
   skillsPage: {

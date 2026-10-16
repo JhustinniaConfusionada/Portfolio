@@ -131,8 +131,8 @@ function AboutPage() {
       h('p', null, copy.description)
     ),
     h('section', { className: 'about-story' },
-      h('div', { className: 'about-art', role: 'img', 'aria-label': copy.imageLabel },
-        h('span', { className: 'about-art-sun' }),
+      h('div', { className: 'about-art' },
+        h('img', { className: 'about-art-image', src: 'src/about-strawberry.png', alt: copy.imageLabel }),
         h('span', { className: 'about-art-word' }, copy.imageWord),
         h('span', { className: 'about-art-note' }, copy.imageNote)
       ),

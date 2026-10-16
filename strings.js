@@ -44,19 +44,19 @@ window.PORTFOLIO_STRINGS = {
     ctaLink: 'Message ME'
   },
   about: {
-    eyebrow: 'CHECK THIS OUT',
-    titleFirst: 'Still Learning, Growing,',
+    eyebrow: 'SOMETHING ABOUT ME',
+    titleFirst: 'I’m still Learning, Growing,',
     titleSecond: 'And Discovering.',
-    description: 'I am Jhustine Cortuna, a multidisciplinary designer and an aspiring artist who cares about making and creating things.',
-    imageLabel: 'Abstract sun and shapes in warm colors',
+    description: 'I’m Jhustine — a 4th-year graduating student from National University-Manila, taking a major in Bachelor of Science in Information Technology with a specialization in Multimedia Arts and Animation.',
+    imageLabel: 'Illustration of a person in a strawberry hat sitting beside a flower and books',
     imageWord: 'stay curious',
-    imageNote: 'Somewhere between logic & magic',
-    storyEyebrow: 'THE SHORT VERSION',
-    storyTitle: 'Good work starts with listening.',
+    // imageNote: 'Somewhere between logic & magic',
+    storyEyebrow: 'MORE ABOUT ME',
+    storyTitle: 'Young, curious, and still got a lot to improve',
     paragraphs: [
-      'I work at the intersection of design and technology, helping people and teams turn complex ideas into digital products that feel simple, useful, and a little unexpected.',
-      'My process is collaborative and considered: ask better questions, make room for different perspectives, and sweat the small things that make an experience feel just right.',
-      'Outside of work, you’ll find me looking for a new walking route, collecting cookbooks, or attempting to keep a houseplant alive.'
+      'I’m always eager to learn and grow, both as an artist and as a person. I believe that every project is an opportunity to push my boundaries and explore new possibilities.',
+      'I’m a firm believer in the power of collaboration and communication. I enjoy working with others, sharing ideas, and learning from different perspectives.',
+      'I’m passionate about creating meaningful experiences through design and art. I strive to make a positive impact on the world, one project at a time.'
     ],
     valuesEyebrow: 'WHAT I BELIEVE',
     valuesTitle: 'The way matters, too.',
@@ -70,7 +70,7 @@ window.PORTFOLIO_STRINGS = {
   },
   projectsPage: {
     // eyebrow: 'A SELECTION OF RECENT WORK',
-    titleFirst: 'Life is a',
+    titleFirst: 'Art is a',
     titleSecond: 'Work-In-Progress.',
     description: 'Browse my work by category, from animation and audio to photography and art.',
     filterLabel: 'Filter projects',
@@ -210,7 +210,7 @@ window.PORTFOLIO_STRINGS = {
   ],
   contact: {
     eyebrow: 'Wanna commission me? Or just wanna say hi? I’m all ears.',
-    titleFirst: 'Something caught your eye, or a project idea on your mind?',
+    titleFirst: 'Oh? Do you have a project in mind?',
     titleSecond: 'I’d love to hear about it!',
     description: 'A new project, a collaboration, or just a friendly hello — my inbox is open. Tell me a little about what you’re thinking.',
     availability: 'Currently taking on select projects.',

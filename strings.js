@@ -2,11 +2,11 @@
 window.PORTFOLIO_STRINGS = {
   site: {
     owner: 'Jhustine Cortuna',
-    role: 'DESIGNER & DEVELOPER',
+    role: 'CONCEPT DESIGNER & ARTIST',
     email: 'Jhustinel.cortuna@gmail.com',
-    pageTitle: 'Jhustine Cortuna — Designer & Developer',
-    description: 'Jhustine Cortuna is a 4th-year BSIT student from National University-Manila, interested in web development and design, approaching problems with a user-centered mindset.',
-    footerNote: 'Made with care, and a little bit of coffee.',
+    pageTitle: 'Jhustine Cortuna — Concept Designer & Artist',
+    description: 'Jhustine Cortuna is a 4th-year BSIT student from National University-Manila, interested in creating art and designing! Conceptualizing one-step at a time.',
+    // footerNote: '',
     emailLinkLabel: 'Email me!'
   },
   navigation: {
@@ -22,30 +22,32 @@ window.PORTFOLIO_STRINGS = {
   },
   home: {
     titleFirst: 'Hello, I’m Jhustine',
-    titleSecond: '& This is my portfolio.',
-    description: 'I am an aspiring designer and front-end developer turning big ideas into clear, human digital experiences.',
+    titleSecond: '& This is my PORTFOLIO.',
+    description: 'I am an aspiring concept designer and an artist, currently a 4th-year BSIT student from National University-Manila. I am interested in creating art and designing! Conceptualizing one-step at a time.',
     projectsLink: 'Check out my work',
-    aboutLink: 'Get to know me here!',
+    aboutLink: 'Get to know me here!', //<--add a shadow effect when hovering over all button link
+    profileImageAlt: 'Portrait illustration of a red-haired person wearing a pink animal hat',
     // visualLabel: 'Abstract illustration of a creative workspace',
     visualStamp: 'J / C',
-    visualTitleFirst: 'Useful things.',
-    visualTitleSecond: 'Beautifully.',
-    visualCaption: 'A little structure, a lot of imagination.',
+    // visualTitleFirst: 'Useful things.',
+    // visualTitleSecond: 'Beautifully.',
+    // visualCaption: 'A little structure, a lot of imagination.',
     introEyebrow: 'A CREATIVE PARTNER',
-    intro: 'From the first sketch to the final line of code, I bring thoughtful ideas to life with purpose, personality, and a healthy respect for the details.',
-    selectedWork: 'SELECTED WORK · 2022—2026',
+    intro: 'Canva · Figma · Adobe Photoshop · Adobe Illustrator · Adobe After Effects · Blender · Unity · Clip Studio Paint',
+
+    selectedWork: 'SELECTED WORK · 2023—2026',
     selectedTitle: 'A few things I’ve made.',
     allProjectsLink: 'All projects',
-    ctaEyebrow: 'HAVE SOMETHING IN MIND?',
-    ctaFirst: 'Let’s make it',
-    ctaSecond: 'matter.',
-    ctaLink: 'Start a conversation'
+    ctaEyebrow: 'GOT SOMETHING IN MIND? WANNA TALK ABOUT IT? ',
+    ctaFirst: 'Hey! You should',
+    ctaSecond: 'commision me ;)',
+    ctaLink: 'Message ME'
   },
   about: {
-    eyebrow: 'A BIT ABOUT ME',
-    titleFirst: 'Curious by nature.',
-    titleSecond: 'Thoughtful by design.',
-    description: 'I’m Jhustine Cortuna, a multidisciplinary designer and developer who cares about making the digital world feel a little more human.',
+    eyebrow: 'CHECK THIS OUT',
+    titleFirst: 'Still Learning, Growing,',
+    titleSecond: 'And Discovering.',
+    description: 'I am Jhustine Cortuna, a multidisciplinary designer and an aspiring artist who cares about making and creating things.',
     imageLabel: 'Abstract sun and shapes in warm colors',
     imageWord: 'stay curious',
     imageNote: 'Somewhere between logic & magic',
@@ -76,6 +78,17 @@ window.PORTFOLIO_STRINGS = {
     // note: 'Want to see a case study or learn more about a project?',
     noteLink: 'Just ask.'
   },
+
+  //categories: [
+  // 'Animation', 
+  // 'Audio', 
+  // 'Digital & Traditional Arts', 
+  // 'Publication Materials',
+  // 'Photography',
+  // 'Concept Art',
+  // '3D Models'
+  // ],
+
   projectDetailPage: {
     backLink: 'Return',
     contextTitle: 'What was this about?',

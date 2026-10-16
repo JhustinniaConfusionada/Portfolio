@@ -58,7 +58,8 @@ webProject/
 └── src/
     ├── jc_logo.png
     ├── certi_in_LinkedIn.jpg
-    └── unity-essentials.1.png
+    ├── unity-essentials.1.png
+    └── profile-portrait.png
 ```
 
 ## Color palette

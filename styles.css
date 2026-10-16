@@ -139,6 +139,7 @@ h3 {
 .nav-link:hover,
 .nav-link.active {
   color: var(--ink);
+  /* shadow: 0 0 4px rgb(243 112 30 / 18%); */
 }
 
 .nav-link.active::after {
@@ -271,96 +272,20 @@ h3 {
 
 .hero-visual {
   position: relative;
-  min-height: 386px;
+  height: 386px;
+  display: grid;
+  place-items: center;
   overflow: hidden;
-  background: var(--palette-beige);
+  background: #cdd2e6;
+  border-radius: 28px;
 }
 
-.dark-theme .hero-visual {
-  background: #36302b;
-}
-
-.visual-sun {
-  position: absolute;
-  top: 60px;
-  right: 64px;
-  width: 205px;
-  height: 205px;
-  border-radius: 50%;
-  background: var(--palette-orange);
-}
-
-.visual-orbit {
-  position: absolute;
-  top: 13px;
-  right: 17px;
-  width: 300px;
-  height: 300px;
-  border: 1px solid rgb(75 96 127 / 40%);
-  border-radius: 50%;
-}
-
-.visual-orbit::before,
-.visual-orbit::after {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--palette-blue);
-  content: '';
-}
-
-.visual-orbit::before {
-  top: 47px;
-  left: 28px;
-}
-
-.visual-orbit::after {
-  right: 37px;
-  bottom: 24px;
-  width: 6px;
-  height: 6px;
-  background: var(--palette-orange);
-}
-
-.visual-stamp {
-  position: absolute;
-  z-index: 1;
-  top: 33px;
-  left: 34px;
-  font: 13px var(--mono);
-}
-
-.visual-card {
-  position: absolute;
-  z-index: 2;
-  right: 33px;
-  bottom: 46px;
-  width: 235px;
-  padding: 20px 22px;
-  background: var(--paper);
-  box-shadow: 0 14px 40px rgb(32 27 24 / 16%);
-  transform: rotate(-4deg);
-}
-
-.visual-card span,
-.visual-caption {
-  color: var(--muted);
-  font: 9px var(--mono);
-  letter-spacing: .04em;
-}
-
-.visual-card strong {
+.hero-visual img {
   display: block;
-  margin-top: 14px;
-  font: 600 23px/1.25 var(--display);
-  letter-spacing: -.05em;
-}
-
-.visual-caption {
-  position: absolute;
-  bottom: 20px;
-  left: 30px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: inherit;
 }
 
 .intro-strip {
@@ -1110,26 +1035,7 @@ h3 {
   }
 
   .hero-visual {
-    min-height: 330px;
-  }
-
-  .visual-sun {
-    top: 48px;
-    right: 56px;
-    width: 180px;
-    height: 180px;
-  }
-
-  .visual-orbit {
-    top: 15px;
-    right: 14px;
-    width: 260px;
-    height: 260px;
-  }
-
-  .visual-card {
-    right: 23px;
-    bottom: 35px;
+    height: 330px;
   }
 
   .intro-strip {

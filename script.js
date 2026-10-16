@@ -99,15 +99,8 @@ function HomePage() {
           h('a', { className: 'text-link', href: '#about' }, copy.aboutLink, ' ', h(Arrow, { diagonal: true }))
         )
       ),
-      h('div', { className: 'hero-visual', 'aria-label': copy.visualLabel, role: 'img' },
-        h('div', { className: 'visual-stamp' }, copy.visualStamp),
-        h('div', { className: 'visual-sun' }),
-        h('div', { className: 'visual-orbit' }),
-        h('div', { className: 'visual-card' },
-          h('span', null, copy.visualOverline),
-          h('strong', null, copy.visualTitleFirst, h('br'), copy.visualTitleSecond)
-        ),
-        h('span', { className: 'visual-caption' }, copy.visualCaption)
+      h('div', { className: 'hero-visual' },
+        h('img', { src: 'src/profile-portrait.png', alt: copy.profileImageAlt })
       )
     ),
     h('section', { className: 'intro-strip shell' },

@@ -135,9 +135,9 @@ window.PORTFOLIO_STRINGS = {
       ]
     },
     {
-      title: 'NUWC Publications',
+      title: 'NUWC Publication Materials',
       category: 'Publication Materials',
-      description: 'Publication and event materials created for NU-Manila Wizards Circle, a student organization from National University - Manila in 2023.',
+      description: 'Publication and event materials with the theme of Harry Potter, created for NU-Manila Wizards Circle - a student organization from National University-Manila in 2023.',
       detail: 'Event publication · Graphic design',
       media: [
         { type: 'image', src: 'src/PubMats/2023 pubmat NUWC.jpg', label: 'NUWC publication material' },

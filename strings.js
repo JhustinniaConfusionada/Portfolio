@@ -143,7 +143,9 @@ window.PORTFOLIO_STRINGS = {
         { type: 'image', src: 'src/PubMats/2023 pubmat NUWC.jpg', label: 'NUWC publication material' },
         { type: 'image', src: 'src/PubMats/2023 D1 pubmat NUWC.jpg', label: 'NUWC publication material 1' },
         { type: 'image', src: 'src/PubMats/2023 D2 pubmat NUWC.jpg', label: 'NUWC publication material 2' },
-        { type: 'image', src: 'src/PubMats/2023 GA pubmat NUWC.jpg', label: 'PubMat for NUWC General Assembly ' }
+        { type: 'image', src: 'src/PubMats/2023 GA pubmat NUWC.jpg', label: 'PubMat for NUWC General Assembly ' },
+        { type: 'image', src: 'src/PubMats/2023 Booth pubmat NUWC.jpg', label: 'NUWC booth publication material' },
+        { type: 'image', src: 'src/PubMats/2023 RM pubmat NUWC.png', label: 'NUWC registration month publication material' }
       ]
     },
     {

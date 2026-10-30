@@ -21,9 +21,9 @@ window.PORTFOLIO_STRINGS = {
     themeToDark: 'Switch to dark theme'
   },
   home: {
-    titleFirst: 'Welcome! I’m Jhustine',
-    titleSecond: 'Care to look at my work?',
-    description: 'I am an aspiring concept designer and an artist, currently a 4th-year BSIT student from National University-Manila. I am interested in creating art and designing! Conceptualizing one-step at a time.',
+    titleFirst: 'Hi! I’m Jhustine',
+    titleSecond: 'Care to look?',
+    description: 'A 4th-year BSIT-MAA student from National University - Manila with hands-on experience in social media content creation and design, seeking an internship to gain real-world experience from people in the professional field and support campaigns and visual branding. I thrive in conceptualizing and synthesizing new ideas.',
     projectsLink: 'Check out my work',
     aboutLink: 'Get to know me here!',
     profileImageAlt: 'Portrait illustration of a red-haired person wearing a pink animal hat',
@@ -46,7 +46,7 @@ window.PORTFOLIO_STRINGS = {
     eyebrow: 'SOMETHING ABOUT ME',
     titleFirst: 'I’m still Learning, Growing,',
     titleSecond: 'And Discovering.',
-    description: 'I’m Jhustine — a 4th-year graduating student from National University-Manila, taking a major in Bachelor of Science in Information Technology with a specialization in Multimedia Arts and Animation.',
+    description: 'I’m Jhustine — a 4th-year student from National University-Manila, taking a major in Bachelor of Science in Information Technology with specialization in Multimedia Arts and Animation.',
     imageLabel: 'Illustration of a person in a strawberry hat sitting beside a flower and books',
     imageWord: 'stay curious',
     // imageNote: 'Somewhere between logic & magic',
@@ -176,6 +176,7 @@ window.PORTFOLIO_STRINGS = {
       category: 'Audio',
       description: 'Audio work and voice acting work from the portfolio collection.',
       detail: 'Voice Acting · Dubbing · Audio Engineering',
+      preview: 'src/AudprevImg (1).png',
       media: [
         { type: 'video', src: 'src/Aud/Messenger_creation_33442046392110593.mp4', label: 'Character sounds/ Voices by Me! ' },
         { type: 'video', src: 'src/Aud/lv_0_20260417032506.mp4', label: 'Audio-Engineering project: Dubbing [Tagalog] ShadowMilk Cookie from CookieRun: Kingdom'  }
@@ -184,8 +185,8 @@ window.PORTFOLIO_STRINGS = {
   ],
   skillsPage: {
     // eyebrow: 'A TOOLKIT, NOT A CHECKLIST', <-- remove this
-    titleFirst: 'Jack of all trades,',
-    titleSecond: 'Master of different things...',
+    titleFirst: 'Check out ',
+    titleSecond: 'my skills and experience',
     description: 'A 4th-year BSIT-MAA student with hands-on experience in social media content creation, design, 3D modeling, and retopology.',
     // experienceEyebrow: 'A FEW CHAPTERS', <-- remove this
     experienceTitle: 'Experience',

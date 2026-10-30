@@ -11,7 +11,9 @@ const pages = [
 
 const projects = content.projects.map((project, index) => ({
   ...project,
-  cover: project.media.find((item) => item.type === 'image'),
+  cover: project.preview
+    ? { src: project.preview }
+    : project.media.find((item) => item.type === 'image'),
   slug: project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
   number: String(index + 1).padStart(2, '0')
 }));
@@ -175,7 +177,7 @@ function AboutPage() {
         copy.paragraphs.map((paragraph) => h('p', { key: paragraph }, paragraph))
       )
     ),
-    h('section', { className: 'values-section' },
+    copy.values && h('section', { className: 'values-section' },
       h(SectionHeading, { eyebrow: copy.valuesEyebrow, title: copy.valuesTitle }),
       h('div', { className: 'values-grid' },
         copy.values.map((value, index) => h('article', { className: 'value-card', key: value.title },

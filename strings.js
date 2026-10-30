@@ -56,13 +56,6 @@ window.PORTFOLIO_STRINGS = {
       'I’m always eager to learn and grow, both as an artist and as a person. I believe that every project is an opportunity to push my boundaries and explore new possibilities.',
       'I’m a firm believer in the power of collaboration and communication. I enjoy working with others, sharing ideas, and learning from different perspectives.',
       'I’m passionate about creating meaningful experiences through design and art. I strive to make a positive impact on the world, one project at a time.'
-    ],
-    valuesEyebrow: 'WHAT I BELIEVE',
-    valuesTitle: 'The way matters, too.',
-    values: [
-      { title: 'People first', description: 'The best solutions begin with real needs, honest conversations, and a little empathy.' },
-      { title: 'Keep it curious', description: 'Stay open, question assumptions, and make space for ideas you didn’t expect.' },
-      { title: 'Details add up', description: 'Small, thoughtful decisions turn a usable experience into a memorable one.' }
     ]
   },
   projectsPage: {
@@ -169,8 +162,12 @@ window.PORTFOLIO_STRINGS = {
       category: '3D Models',
       description: 'Explore these 3D models interactively. Drag to rotate and scroll or pinch to zoom.',
       detail: '3D modeling',
+      preview: 'src/3dPreviewImg.png',
       media: [
         { type: 'model', src: 'src/3D/dbkn_finish.glb', label: 'dbkn_finish 3D model — drag to rotate, scroll or pinch to zoom' },
+        { type: 'model', src: 'src/3D/lowpoly_AmericanHelmet2 (1).glb', label: 'Low-poly American helmet 3D model — drag to rotate, scroll or pinch to zoom' },
+        { type: 'model', src: 'src/3D/lowpoly_BeigeJar.glb', label: 'Low-poly beige jar 3D model — drag to rotate, scroll or pinch to zoom' },
+        { type: 'model', src: 'src/3D/lowpoly_porcelainvase.glb', label: 'Low-poly porcelain vase 3D model — drag to rotate, scroll or pinch to zoom' },
         { type: 'model', src: 'src/3D/virginMary.glb', label: 'virginMary 3D model — drag to rotate, scroll or pinch to zoom' }
       ]
     },

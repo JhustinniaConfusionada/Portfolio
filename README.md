@@ -3,7 +3,7 @@
 **Student:** Cortuna, Jhustine L.  
 **School:** National University, College of Computing and Information Technologies  
 **Category:** Portfolio  
-**Live site:** [https://jhustinniaconfusionada.github.io/webProject/](https://jhustinniaconfusionada.github.io/webProject/)
+**Live site:** [https://jhustinniaconfusionada.github.io/Portfolio/](https://jhustinniaconfusionada.github.io/Portfolio/)
 
 ---
 

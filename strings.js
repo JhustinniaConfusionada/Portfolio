@@ -32,16 +32,15 @@ window.PORTFOLIO_STRINGS = {
     // visualTitleFirst: 'Useful things.',
     // visualTitleSecond: 'Beautifully.',
     // visualCaption: 'A little structure, a lot of imagination.',
-    introEyebrow: 'A CREATIVE PARTNERS',
+    introEyebrow: 'A CREATIVE TOOLKIT',
     intro: 'Canva · Figma · Adobe Photoshop · Adobe Illustrator · Adobe After Effects · Blender · Unity · Clip Studio Paint · Ibis Paint · HTML & CSS · JavaScript · React',
 
     selectedWork: 'Creative WORKS · 2023—2026',
     selectedTitle: 'My Art works and Projects I’ve been involved in...',
     allProjectsLink: 'Check them out',
-    ctaEyebrow: 'GOT SOMETHING IN MIND? WANNA TALK ABOUT IT? ',
-    ctaFirst: 'Hey! You should',
-    ctaSecond: 'commision me ;)',
-    ctaLink: 'Message ME'
+    ctaEyebrow: 'Did I qualify to your requirements?',
+    ctaFirst: 'You can contact me through my email or social media links.',
+    ctaLink: 'Open to Work'
   },
   about: {
     eyebrow: 'SOMETHING ABOUT ME',
@@ -64,9 +63,7 @@ window.PORTFOLIO_STRINGS = {
       { title: 'People first', description: 'The best solutions begin with real needs, honest conversations, and a little empathy.' },
       { title: 'Keep it curious', description: 'Stay open, question assumptions, and make space for ideas you didn’t expect.' },
       { title: 'Details add up', description: 'Small, thoughtful decisions turn a usable experience into a memorable one.' }
-    ],
-    ctaPrompt: 'Have a good feeling about this?',
-    ctaLink: 'Let’s talk about it'
+    ]
   },
   projectsPage: {
     // eyebrow: 'A SELECTION OF RECENT WORK',
@@ -192,37 +189,57 @@ window.PORTFOLIO_STRINGS = {
     // eyebrow: 'A TOOLKIT, NOT A CHECKLIST', <-- remove this
     titleFirst: 'Jack of all trades,',
     titleSecond: 'Master of different things...',
-    description: 'With these mix of skills and experience, I can help bring your ideas to life.',
+    description: 'A 4th-year BSIT-MAA student with hands-on experience in social media content creation, design, 3D modeling, and retopology.',
     // experienceEyebrow: 'A FEW CHAPTERS', <-- remove this
-    experienceTitle: 'Experiences and Accomplishments so far.',
+    experienceTitle: 'Experience',
+    educationTitle: 'Education',
+    education: [
+      {
+        date: '2023 — Expected May 2027',
+        title: 'Bachelor of Science in Information Technology',
+        description: 'National University — Manila, Philippines · Specialization in Multimedia Arts and Animation'
+      }
+    ],
     certificationsTitle: 'Certifications',
     certifications: [
-     { date: '2022', title: 'UX Design Certificate · Google', description: 'A professional certificate program covering the foundations of UX design.' },
-     { date: '2021', title: 'Front-End Web Development Certificate · freeCodeCamp', description: 'A self-paced program covering HTML, CSS, JavaScript, and React.' }
+      { date: 'February 2025', title: 'TOEIC Listening and Reading Test · ETS', description: 'Score: 855/990' },
+      { date: 'January 2026', title: 'Toon Boom Storyboard Pro 25 Workshop · Toon Boom', description: 'Certificate of Completion' },
+      { date: 'April 2024', title: 'Collaborate in Teams and Channels with Microsoft Teams · Microsoft', description: 'Microsoft Teams training' },
+      { date: 'June 2026', title: 'Behind the Screen: Game Art Webinar · Cybercraft PH', description: 'Attendee · DICT' },
+      { date: '2023', title: 'ASEAN Data Science Explorer Webinar', description: 'Participant' }
     ],
     experience: [
-      { date: '2022 — NOW', role: 'Independent Designer & Developer', description: 'Working with kind people to make useful digital products.' },
-      { date: '2020 — 2022', role: 'Product Designer · Brightside Studio', description: 'Led product design across early-stage web and mobile projects.' },
-      { date: '2016 — 2020', role: 'B.A. Visual Communication · Northshore University', description: 'Built a foundation in design, research, and creative practice.' }
+      {
+        date: 'August 2025 — October 2026',
+        role: '3D Artist (Retopology) · ARTifacts',
+        description: 'Worked on a gamified AR platform featuring 3D museum artifacts for historical and cultural preservation. Retopologized and cell-fractured seven high-poly models into clean, low-poly meshes with proper edge flow; digitized 20 interpretive artifacts using Blender; UV-unwrapped and prepared models for texturing; and collaborated with a six-person development team.'
+      },
+      {
+        date: '2023 — 2024',
+        role: 'Multimedia Production · NU Wizards Circle',
+        description: 'Designed six publication materials for the General Assembly Christmas Party using Photopea and published them on NUWC’s Facebook page.'
+      }
     ],
     // ctaPrompt: 'A good fit is about more than a skill list.',  <-- remove this
     ctaLink: 'Let’s find out together'
   },
   skillGroups: [
-    { title: 'Design', items: ['Product design', 'UI & visual design', 'Prototyping', 'Design systems', 'Figma', 'Art direction'] },
-    { title: 'Development', items: ['HTML & CSS', 'JavaScript', 'React', 'Responsive interfaces', 'Accessibility', 'Git'] },
-    { title: 'In practice', items: ['Creative direction', 'User research', 'Clear communication', 'Thoughtful details', 'Team collaboration', 'Curiosity'] }
+    { title: 'Design & Animation', items: ['Adobe Photoshop', 'Canva', 'Figma', 'Clip Studio Paint', 'Photopea', 'Toon Boom Storyboard Pro', 'Storyboarding'] },
+    { title: '3D Art', items: ['Blender', '3D modeling', 'Retopology', 'UV unwrapping', 'Cell fracture'] },
+    { title: 'Office & Collaboration', items: ['Microsoft Word', 'Microsoft Excel', 'Microsoft Teams', 'OneDrive', 'Google Docs', 'Google Sheets', 'Google Meet', 'Google Drive'] },
+    { title: 'Professional Skills', items: ['Collaborative', 'Adaptive', 'Flexible'] },
+    { title: 'Languages', items: ['English (TOEIC 855/990)', 'Filipino'] }
   ],
   contact: {
-    eyebrow: 'Wanna commission me? Or just wanna say hi? I’m all ears.',
-    titleFirst: 'Oh? Do you have a project in mind?',
-    titleSecond: 'I’d love to hear about it!',
-    description: 'A new project, a collaboration, or just a friendly hello — my inbox is open. Tell me a little about what you’re thinking.',
-    availability: 'Currently taking on select projects.',
+    // eyebrow: 'Wanna commission me? Or just wanna say hi? I’m all ears.',
+    titleFirst: 'You can reach me through',
+    titleSecond: 'my email or social media links below.',
+    // description: 'A new project, a collaboration, or just a friendly hello — my inbox is open. Tell me a little about what you’re thinking.',
+    availability: 'Open to work',
     socialMediaLabel: 'Social media links',
     socialMedia: [
       { name: 'Tiktok', url: 'https://www.tiktok.com/@ctjhx_' },
-      // { name: 'LinkedIn', url: 'https://linkedin.com' },
+      { name: 'LinkedIn', url: 'https://www.linkedin.com/in/jhustine-cortuna-6ba527447/' },
       { name: 'Instagram', url: 'https://www.instagram.com/ct.jhzz/' },
       { name: 'Discord', url: 'https://discord.com/users/767020831481397248' }
     ],

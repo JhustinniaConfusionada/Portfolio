@@ -49,7 +49,7 @@ function Footer() {
   return h('footer', { className: 'site-footer shell' },
     h('span', null, `© ${new Date().getFullYear()} ${content.site.owner}`),
     h('span', { className: 'footer-note' }, content.site.footerNote),
-    h('a', { href: `mailto:${content.site.email}` }, content.site.emailLinkLabel, ' ', h(Arrow, { diagonal: true }))
+    h('a', { href: '#contact' }, content.site.emailLinkLabel, ' ', h(Arrow, { diagonal: true }))
   );
 }
 
@@ -184,10 +184,6 @@ function AboutPage() {
           h('p', null, value.description)
         ))
       )
-    ),
-    h('section', { className: 'page-cta' },
-      h('p', null, copy.ctaPrompt),
-      h('a', { className: 'text-link', href: '#contact' }, copy.ctaLink, ' ', h(Arrow, { diagonal: true }))
     )
   );
 }
@@ -288,7 +284,7 @@ function SkillsPage() {
             h('h2', null, group.title)
           ),
           h('ul', { className: 'skill-list' },
-            group.items.map((item) => h('li', { key: item }, item, h('span', { 'aria-hidden': true }, '↗')))
+            group.items.map((item) => h('li', { key: item }, item))
           )
         ))
       )
@@ -302,6 +298,15 @@ function SkillsPage() {
         ))
       )
     ),
+    h('section', { className: 'experience-section education-section' },
+      h(SectionHeading, { title: copy.educationTitle }),
+      h('div', { className: 'experience-list' },
+        copy.education.map((item) => h('article', { className: 'experience-item', key: item.title },
+          h('span', { className: 'eyebrow' }, item.date),
+          h('div', null, h('h3', null, item.title), h('p', null, item.description))
+        ))
+      )
+    ),
     h('section', { className: 'experience-section certifications-section' },
       h(SectionHeading, { title: copy.certificationsTitle }),
       h('div', { className: 'experience-list' },
@@ -310,10 +315,6 @@ function SkillsPage() {
           h('div', null, h('h3', null, item.title), h('p', null, item.description))
         ))
       )
-    ),
-    h('section', { className: 'page-cta' },
-      h('p', null, copy.ctaPrompt),
-      h('a', { className: 'text-link', href: '#contact' }, copy.ctaLink, ' ', h(Arrow, { diagonal: true }))
     )
   );
 }

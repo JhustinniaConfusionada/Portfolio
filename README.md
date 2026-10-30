@@ -35,6 +35,7 @@ The interface is built with HTML, CSS, and React using its browser-ready CDN bui
 - Contact form with browser-required-field and email-format validation
 - Contact form confirmation is client-side only; it does not send or store messages
 - Project cards and page copy are rendered from JavaScript data
+- 3D project pages display interactive GLB models with drag-to-rotate and pinch/scroll zoom controls
 
 ## Technologies
 
@@ -44,6 +45,7 @@ The interface is built with HTML, CSS, and React using its browser-ready CDN bui
 | CSS3 | Styling, responsive layout, themes, and color palette |
 | JavaScript (ES6) | Navigation, filtering, theme preference, and form interactions |
 | React 18 | Rendering the portfolio interface and interactive sections |
+| `<model-viewer>` | Loading and interacting with GLB models |
 | Local Storage | Persisting the light/dark theme selection |
 | GitHub Pages | Static site hosting |
 
@@ -78,7 +80,7 @@ webProject/
 
 ## Run locally
 
-Open `index.html` in a browser, or serve the folder with a local static server such as the VS Code Live Server extension. React and the fonts are loaded from CDNs, so an internet connection is needed for those external resources.
+Open `index.html` in a browser, or serve the folder with a local static server such as the VS Code Live Server extension. React, the fonts, and `<model-viewer>` are loaded from CDNs, so an internet connection is needed for those external resources.
 
 ## Deploy with GitHub Pages
 

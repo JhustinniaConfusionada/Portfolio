@@ -205,7 +205,17 @@ function ProjectDetailPage({ project }) {
     project.media.length
       ? h('section', { className: 'project-asset-grid', 'aria-label': project.category },
         project.media.map((asset) => h('figure', { className: 'project-asset', key: asset.src },
-          asset.type === 'image'
+          asset.type === 'model'
+            ? h('model-viewer', {
+              src: asset.src,
+              alt: asset.label,
+              'camera-controls': '',
+              'touch-action': 'pan-y',
+              'interaction-prompt': 'auto',
+              loading: 'lazy',
+              'shadow-intensity': '1'
+            })
+            : asset.type === 'image'
             ? h('img', { src: asset.src, alt: asset.label, loading: 'lazy' })
             : asset.type === 'video'
               ? h('video', { controls: true, preload: 'metadata' },

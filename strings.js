@@ -170,9 +170,12 @@ window.PORTFOLIO_STRINGS = {
     {
       title: '3D Model Showcase',
       category: '3D Models',
-      description: '3D modeling work will be added to this collection.',
+      description: 'Explore these 3D models interactively. Drag to rotate and scroll or pinch to zoom.',
       detail: '3D modeling',
-      media: []
+      media: [
+        { type: 'model', src: 'src/3D/dbkn_finish.glb', label: 'dbkn_finish 3D model — drag to rotate, scroll or pinch to zoom' },
+        { type: 'model', src: 'src/3D/virginMary.glb', label: 'virginMary 3D model — drag to rotate, scroll or pinch to zoom' }
+      ]
     },
     {
       title: 'Audio Projects',

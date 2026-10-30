@@ -233,6 +233,6 @@ window.PORTFOLIO_STRINGS = {
     messageLabel: 'A little about your project',
     messagePlaceholder: 'What are you working on?',
     submitLabel: 'Send your note',
-    successMessage: 'Thanks for reaching out! This demo form is ready to connect to your email service.'
+    successMessage: 'Your email app should open with your message ready. Send it there to complete your inquiry.'
   }
 };

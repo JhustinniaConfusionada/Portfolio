@@ -64,14 +64,47 @@ function SectionHeading({ eyebrow, title, children }) {
 }
 
 function ProjectCard({ project }) {
+  const projectHref = `#item-content/${project.slug}`;
+  const previewModel = project.media.find((item) => item.type === 'model');
+  const previewAudio = project.category === 'Audio'
+    ? project.media.find((item) => item.type === 'audio' || item.type === 'video')
+    : undefined;
+
   return h('article', { className: 'project-card' },
-    h('a', { className: 'project-card-link', href: `#item-content/${project.slug}`, 'aria-label': `${project.title} — ${content.projectDetailPage.contextTitle}` },
-      h('div', { className: 'project-collection-preview' },
-        project.cover
-          ? h('img', { src: project.cover.src, alt: '', loading: 'lazy' })
-          : h('span', { className: 'project-collection-placeholder' }, project.category),
-        h('span', { className: 'project-art-corner', 'aria-hidden': true }, '↗')
-      ),
+    h('div', { className: 'project-collection-preview' },
+      project.cover
+        ? h('a', { className: 'project-card-link project-preview-image', href: projectHref, 'aria-label': `${project.title} — ${content.projectDetailPage.contextTitle}` },
+          h('img', { src: project.cover.src, alt: '', loading: 'lazy' }),
+          h('span', { className: 'project-art-corner', 'aria-hidden': true }, '↗')
+        )
+        : previewModel
+          ? h('model-viewer', {
+            src: previewModel.src,
+            alt: previewModel.label,
+            'camera-controls': '',
+            'touch-action': 'pan-y',
+            'interaction-prompt': 'auto',
+            loading: 'lazy',
+            'shadow-intensity': '1'
+          })
+          : previewAudio
+            ? h('audio', {
+              className: 'project-audio-preview',
+              controls: true,
+              preload: 'none',
+              'aria-label': previewAudio.label
+            }, h('source', { src: previewAudio.src }))
+            : h('a', { className: 'project-card-link project-preview-image', href: projectHref, 'aria-label': `${project.title} — ${content.projectDetailPage.contextTitle}` },
+              h('span', { className: 'project-collection-placeholder' }, project.category),
+              h('span', { className: 'project-art-corner', 'aria-hidden': true }, '↗')
+            ),
+      (previewModel || previewAudio) && h('a', {
+        className: 'project-art-corner',
+        href: projectHref,
+        'aria-label': `${project.title} — ${content.projectDetailPage.contextTitle}`
+      }, '↗')
+    ),
+    h('a', { className: 'project-card-link project-card-content', href: projectHref, 'aria-label': `${project.title} — ${content.projectDetailPage.contextTitle}` },
       h('div', { className: 'project-info' },
         h('div', null,
           h('span', { className: 'project-number' }, project.number),
@@ -291,8 +324,18 @@ function ContactPage() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const subject = `Portfolio inquiry from ${formData.get('name')}`;
+    const body = [
+      `Name: ${formData.get('name')}`,
+      `Email: ${formData.get('email')}`,
+      '',
+      'Message:',
+      formData.get('message')
+    ].join('\n');
+
+    window.location.href = `mailto:${content.site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSubmitted(true);
-    event.currentTarget.reset();
   }
 
   return h('main', { className: 'page-main shell' },

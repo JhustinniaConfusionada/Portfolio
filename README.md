@@ -1,7 +1,6 @@
 # Jhustine Cortuna — Portfolio
 
 **Student:** Cortuna, Jhustine L.  
-**Course:** Integrative Programming Technologies — Individual Final Project: Website Development  
 **School:** National University, College of Computing and Information Technologies  
 **Category:** Portfolio  
 **Live site:** [https://jhustinniaconfusionada.github.io/webProject/](https://jhustinniaconfusionada.github.io/webProject/)
@@ -32,9 +31,10 @@ The interface is built with HTML, CSS, and React using its browser-ready CDN bui
 - Project cards filter by category and open context pages with image, video, or audio assets
 - Categories without uploaded work show an empty-state message
 - Light/dark theme toggle; theme preference is saved in local storage
-- Contact form with browser-required-field and email-format validation
-- Contact form confirmation is client-side only; it does not send or store messages
+- Contact form validates required fields and email format, then opens a prefilled message in the visitor's email app
+- Sending requires the visitor to have an email app configured and press Send; the static site does not store or send messages itself
 - Project cards and page copy are rendered from JavaScript data
+- Project cards preview interactive GLB models and include audio playback controls for audio projects
 - 3D project pages display interactive GLB models with drag-to-rotate and pinch/scroll zoom controls
 
 ## Technologies
@@ -80,7 +80,7 @@ webProject/
 
 ## Run locally
 
-Open `index.html` in a browser, or serve the folder with a local static server such as the VS Code Live Server extension. React, the fonts, and `<model-viewer>` are loaded from CDNs, so an internet connection is needed for those external resources.
+Open `index.html` in a browser, or serve the folder with a local static server such as the VS Code Live Server extension. React, the fonts, and `<model-viewer>` are loaded from CDNs, so an internet connection is needed for those external resources. The contact form opens a prefilled email using the visitor's configured email app.
 
 ## Deploy with GitHub Pages
 
